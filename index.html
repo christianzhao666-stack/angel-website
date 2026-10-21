@@ -1,0 +1,471 @@
+<!doctype html>
+<!--
+  =====================================================================
+  Angel Musical 首页原型（index.html）
+  ---------------------------------------------------------------------
+  这是网站的"骨架"：只负责内容和结构（标题、段落、图片、链接）。
+  所有"长什么样"（颜色、字体、间距、排版）都写在 css/style.css 里。
+  阅读顺序：从上到下 = 页面从上到下。
+  每个大区块都用 <section> 包起来，并配有中文注释说明用途。
+
+  ★ 标有 TODO 的地方是"待确认信息"，上线前必须替换成真实内容。
+  =====================================================================
+-->
+<html lang="en">
+<head>
+  <!-- 字符编码：UTF-8 让中文、日文、英文都能正常显示 -->
+  <meta charset="utf-8">
+  <!-- 让手机按设备宽度显示页面，而不是缩小成电脑版 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 浏览器标签页标题 + 搜索引擎显示的标题 -->
+  <title>Angel Musical — Rebuilt Japanese Pianos for the Trade</title>
+  <!-- 搜索引擎结果里显示的简介（用的是现网站和资料表里的真实文案） -->
+  <meta name="description" content="Angel Musical supplies rebuilt Japanese pianos to piano shops, dealers, and distributors in more than 10 countries. Trade only.">
+
+  <!-- 网站小图标（浏览器标签页上的那个 A）。SVG 清晰，PNG 作为兼容备用 -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- 预加载首屏要用的字体和大图，让首屏更快出现 -->
+  <link rel="preload" href="fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="images/hero-factory.webp" as="image">
+
+  <!-- 引入样式表：所有外观都在这里 -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- 无障碍"跳到正文"链接：用键盘 Tab 键时才会出现，方便视障用户 -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- =================================================================
+       1. 页头 Header：Logo + 导航 + 语言切换
+       ================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- Logo：点击回到首页。页头和页脚用的是同一个文件，保证全站统一 -->
+      <a class="brand" href="index.html" aria-label="Angel Musical — home">
+        <img src="images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30">
+      </a>
+
+      <!-- 主导航：# 开头的链接会跳到本页对应的区块 -->
+      <nav class="main-nav" aria-label="Main">
+        <a href="#brands">Products</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- 语言切换（目前只是占位链接）
+           TODO：做好中文版、日文版页面后，把 href 改成 zh/index.html、ja/index.html -->
+      <div class="lang-switch" aria-label="Language">
+        <a href="#" aria-current="true">EN</a>
+        <a href="#" lang="zh">中</a>
+        <a href="#" lang="ja">日</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- main：页面的主要内容都在这里面 -->
+  <main id="main">
+
+    <!-- ===============================================================
+         2. 首屏 Hero：大图 + 主标题 + 两个按钮
+         背景大图在 CSS 里设置（.hero），这里只放文字
+         =============================================================== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <!-- 小标题（资料表首页文案） -->
+        <p class="eyebrow">Consistent Quality. Professional Piano Supply.</p>
+
+        <!-- 主标题：整页唯一的 h1，搜索引擎最看重 -->
+        <h1 class="hero-title">Rebuilt Japanese Pianos.<br>Trade Only.</h1>
+
+        <!-- 副标题（现网站 About 页文案） -->
+        <p class="hero-lead">
+          Angel Musical supplies rebuilt Japanese pianos to piano shops, dealers,
+          and distributors in more than 10 countries.
+        </p>
+
+        <!-- 两个按钮：都跳到页面底部的联系区 -->
+        <div class="button-row">
+          <a class="btn btn-gold" href="#contact">Request Stock List</a>
+          <a class="btn btn-ghost" href="#contact">Become a Partner</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         3. 品牌口号带 Tagline band（资料表里的公司口号）
+         =============================================================== -->
+    <section class="tagline-band" aria-label="Company slogan">
+      <div class="container">
+        <p>Masterful Restoration <span aria-hidden="true">·</span> Lasting Value <span aria-hidden="true">·</span> Connecting the World</p>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         4. 关于我们 Who we are（文案全部来自现网站 About 页）
+         左边：编号 + 大标题；右边：正文
+         =============================================================== -->
+    <section class="section section-light" id="about">
+      <div class="container grid-2">
+
+        <div class="section-head">
+          <p class="section-no">01 — Who we are</p>
+          <h2 class="section-title">A trade-only supplier.<br>Not a retailer.</h2>
+        </div>
+
+        <div class="prose">
+          <p>
+            Angel Musical Instrument (Liaoning) Co., Ltd. established operations in
+            Yingkou Comprehensive Bonded Zone in 2020, focusing on bonded logistics
+            for imported pre-owned pianos.
+          </p>
+          <p>
+            We handle sourcing, prep, and export logistics so you can stay focused on sales.
+            Every relationship we build is meant to last.
+          </p>
+
+          <!-- 引言：用细金线和衬线字体突出公司理念 -->
+          <blockquote class="quote">
+            <p>In this business, reputation moves slower than freight — and lasts longer.</p>
+          </blockquote>
+
+          <p>
+            We would rather earn trust shipment by shipment than chase a quick deal.
+            Volume comes and goes. Partnerships should not.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- 厂区航拍照片（公司自己拍摄）。宽幅 21:9，放在关于我们的下方 -->
+      <div class="container">
+        <figure class="wide-photo">
+          <img src="images/about-facility.webp" alt="Aerial view of the Angel Musical facility" width="1600" height="686" loading="lazy">
+          <!-- TODO：请确认这张航拍是否就是营口自贸区的厂区；确认后可把说明改成 "Our facility, Yingkou" -->
+          <figcaption>Our facility</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         5. 十道工序 The 10-step process（文案来自现网站 Services 页）
+         上面 3 张工艺照片，下面是编号列表 <ol>
+         =============================================================== -->
+    <section class="section section-light section-border" id="process">
+      <div class="container">
+
+        <div class="section-head section-head-wide">
+          <p class="section-no">02 — Process</p>
+          <h2 class="section-title">Ten steps. Every piano.</h2>
+          <p class="section-intro">
+            From incoming inspection to container loading — quality checks at every stage,
+            and only approved instruments proceed to shipping.
+          </p>
+        </div>
+
+        <!-- 三张真实工艺照片。loading="lazy" = 滚动到附近才加载，省流量 -->
+        <div class="photo-row">
+          <figure>
+            <img src="images/process-action.webp" alt="Open upright piano with action and keys exposed during reconditioning" width="1000" height="750" loading="lazy">
+            <figcaption>Action components</figcaption>
+          </figure>
+          <figure>
+            <img src="images/process-voicing.webp" alt="Technician voicing piano hammers" width="1000" height="667" loading="lazy">
+            <figcaption>Voicing &amp; tuning</figcaption>
+          </figure>
+          <figure>
+            <img src="images/process-export.webp" alt="Forklift loading pianos into a shipping container" width="1000" height="750" loading="lazy">
+            <figcaption>Container loading</figcaption>
+          </figure>
+        </div>
+
+        <!-- 编号列表：<ol> 是"有序列表"，编号样式由 CSS 控制（I、II、III…） -->
+        <ol class="steps">
+          <li>
+            <!-- TODO：现网站写"每年处理 5,000+ 台"，首页又写"年出口 10,000+ 台"，
+                 数字未确认，这里暂时不写具体数字 -->
+            <h3>Incoming inspection</h3>
+            <p>Pianos arrive at our central warehouse. Every instrument undergoes professional assessment; only pianos suitable for reconditioning to near-new condition enter the workshop.</p>
+          </li>
+          <li>
+            <h3>Deep cleaning</h3>
+            <p>Interior and exterior surfaces are thoroughly cleaned to remove years of dust, stains, and residue.</p>
+          </li>
+          <li>
+            <h3>Case refinishing &amp; mirror polishing</h3>
+            <p>Fine sanding and polishing achieve a mirror finish, removing scratches and blemishes.</p>
+          </li>
+          <li>
+            <h3>Keytop polishing &amp; replacement</h3>
+            <p>Keytops are polished to an ivory-smooth feel; cracked or damaged surfaces are replaced with matched materials.</p>
+          </li>
+          <li>
+            <h3>Action component replacement</h3>
+            <p>Technicians replace and adjust internal action components — every part must meet 0.01&nbsp;mm tolerances.</p>
+          </li>
+          <li>
+            <h3>Complete piano rebuild</h3>
+            <p>For clients requiring a full upgrade, strings, hammers, and other core components are rebuilt and precisely adjusted.</p>
+          </li>
+          <li>
+            <h3>Action regulation &amp; keybed setup</h3>
+            <p>Key weight, height, and dip are measured and regulated to factory specification.</p>
+          </li>
+          <li>
+            <h3>Regulation, voicing &amp; tuning</h3>
+            <p>Note by note, for even tone colour and balance across the full range, followed by precision tuning.</p>
+          </li>
+          <li>
+            <h3>Pre-shipment final inspection</h3>
+            <p>All components are verified. Any defect requires rework; only approved instruments proceed to shipping.</p>
+          </li>
+          <li>
+            <!-- TODO：出货港口未确认。现网站写"大连、丹东"，资料表写"东京、千叶、横滨"。
+                 确认后可补一句：We ship mainly from ___ ports. -->
+            <h3>Container loading &amp; export</h3>
+            <p>Refurbished pianos are professionally packed into ocean containers and delivered to partners worldwide.</p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         5b. 工艺视频带 Craft video（公司自己拍摄的车间视频，已去除全部声音）
+         左边文字、右边竖版视频。
+         - muted：静音（浏览器只允许静音视频自动播放）
+         - loop：循环播放
+         - playsinline：在 iPhone 上不自动全屏
+         - poster：视频加载前 / 不播放时显示的封面图
+         - preload="none"：先不下载视频，等滚动到附近时由 js/craft-video.js 再加载（省流量）
+         如果访客的系统设置了"减少动态效果"，视频不会自动播放，只显示封面和播放按钮。
+         =============================================================== -->
+    <section class="section section-dark craft" aria-label="Inside the workshop">
+      <div class="container craft-grid">
+
+        <div class="craft-text">
+          <p class="section-no">Inside the workshop</p>
+          <h2 class="section-title">This stage defines<br>playing performance.</h2>
+          <p class="section-intro">
+            In a dedicated indoor workspace, technicians replace and adjust internal action
+            components — every part must meet 0.01&nbsp;mm tolerances for a responsive,
+            comfortable touch.
+          </p>
+        </div>
+
+        <figure class="craft-media">
+          <video class="craft-video" muted loop playsinline preload="none"
+                 poster="images/craft-poster.webp" width="720" height="1280"
+                 aria-label="Workshop footage: open upright pianos and a technician at work">
+            <!-- 两种格式：浏览器会自动选第一个它支持的。WebM 更小，MP4 兼容性最好 -->
+            <source data-src="video/craft-loop.webm" type="video/webm">
+            <source data-src="video/craft-loop.mp4" type="video/mp4">
+          </video>
+          <figcaption>Workshop footage · Angel Musical</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         6. 数据 Numbers（深色背景）
+         =============================================================== -->
+    <section class="section section-dark numbers" aria-label="Company scale">
+      <div class="container">
+        <ul class="stats">
+          <li>
+            <span class="stat-value">10+</span>
+            <span class="stat-label">Countries &amp; regions</span>
+          </li>
+          <li>
+            <!-- TODO：年出货量未确认（现网站首页 10,000+，Services 页和资料表 5,000+）。
+                 确认后把 XX,XXX+ 改成真实数字，并把下面一行的标签改准确
+                 （"出口量"还是"处理量"） -->
+            <span class="stat-value stat-todo">XX,XXX+</span>
+            <span class="stat-label">Units per year</span>
+          </li>
+          <li>
+            <span class="stat-value">50+</span>
+            <span class="stat-label">Team members</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         7. 品牌 Brands（型号来自现网站 Products 页）
+         左：照片；右：两个品牌卡片
+         =============================================================== -->
+    <section class="section section-light" id="brands">
+      <div class="container">
+
+        <div class="section-head section-head-wide">
+          <p class="section-no">03 — Products</p>
+          <h2 class="section-title">Yamaha. Kawai. Upright &amp; grand.</h2>
+        </div>
+
+        <div class="brands-grid">
+          <img class="brands-photo" src="images/brands-uprights.webp" alt="Rows of rebuilt upright pianos in the warehouse" width="960" height="1125" loading="lazy">
+
+          <div class="brand-cards">
+            <!-- 一个品牌 = 一张卡片 <article> -->
+            <article class="brand-card">
+              <h3>Yamaha</h3>
+              <dl>
+                <dt>Upright</dt><dd><span>U30MhC&nbsp;·</span> <span>UX30BiC&nbsp;·</span> <span>YU10SG&nbsp;·</span> <span>W3AWn&nbsp;·</span> <span>b113DMC</span></dd>
+                <dt>Grand</dt><dd><span>G2B&nbsp;·</span> <span>C1SN&nbsp;·</span> <span>C3XA&nbsp;·</span> <span>C7X&nbsp;·</span> <span>C2XCP</span></dd>
+              </dl>
+            </article>
+
+            <article class="brand-card">
+              <h3>Kawai</h3>
+              <dl>
+                <dt>Upright</dt><dd><span>K-5&nbsp;·</span> <span>KL-90RB/S&nbsp;·</span> <span>Kb-15J&nbsp;·</span> <span>K-500&nbsp;·</span> <span>AE-80</span></dd>
+                <dt>Grand</dt><dd><span>GS-30M&nbsp;·</span> <span>RX-2A&nbsp;·</span> <span>RX-3A&nbsp;·</span> <span>RX-1G&nbsp;·</span> <span>RX-1H</span></dd>
+              </dl>
+            </article>
+
+            <p class="brands-note">Other Japanese brands also available, upright and grand.</p>
+
+            <!-- TODO：产品页还没做，做好后链接到 products.html -->
+            <a class="text-link" href="products.html">View all models <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         7b. 我们的城市 Our City — Yingkou（营口）
+         介绍公司所在城市的历史：1861 年开埠、东北第一个通商口岸、牛庄海关。
+         所有日期和事实均已核对（来源见报告）。
+         左边：编号 + 标题 + 正文；右边：一张小的竖版照片（营口的教堂，公司自己拍摄）
+         =============================================================== -->
+    <section class="section section-light section-border" id="yingkou">
+      <div class="container city-grid">
+
+        <div class="city-text">
+          <p class="section-no">04 — Since 1861 · A Treaty Port</p>
+          <h2 class="section-title">Our City — Yingkou</h2>
+
+          <div class="prose city-prose">
+            <p>
+              Angel Musical is based in Yingkou, Liaoning, where the Liao River meets
+              Liaodong Bay. Under the Treaty of Tianjin (1858), the river port of Newchwang
+              was designated for foreign trade; because the river there had silted, the port
+              opened downstream at Yingkou in 1861 — the first treaty port in Northeast China.
+              Western traders kept the treaty's name, Newchwang.
+            </p>
+            <p>
+              In 1864 the Newchwang Customs House opened here, the first customs office in the
+              region. For decades the city was a principal outlet for the trade of Manchuria;
+              consulates, trading houses, banks and churches followed, and buildings from that
+              era still stand along the old riverfront.
+            </p>
+            <p>
+              Today the Port of Yingkou, with its deep-water Bayuquan harbour, is one of the
+              largest in Northeast China, and Dalian lies about 200&nbsp;km to the south.
+              We work from a city that has traded with the world for more than 160 years.
+            </p>
+          </div>
+        </div>
+
+        <!-- 小图：营口天主教堂（站前区八田地里16号，营口国际酒店附近）。
+             1988年8月动工、1991年10月祝圣的仿哥特式重建教堂（来源见报告）。
+             现在的主保名称（如“耶稣圣诞堂”）未能从可靠来源确认，所以图注不写。
+             width/height 写真实尺寸，浏览器可以提前留好位置，页面不会跳动 -->
+        <figure class="city-photo">
+          <img src="images/yingkou-church.webp"
+               alt="Yingkou Catholic Church, a red-and-white Gothic-style church with a tall spire, under a clear blue sky"
+               width="600" height="800" loading="lazy">
+          <figcaption>Yingkou Catholic Church, rebuilt in Gothic style 1988–91</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         8. 联系 Contact（深色背景）
+         =============================================================== -->
+    <section class="section section-dark contact" id="contact">
+      <div class="container grid-2">
+
+        <div class="section-head">
+          <p class="section-no">05 — Contact</p>
+          <h2 class="section-title">Partner with<br>Angel Musical</h2>
+          <p class="section-intro">
+            Questions about stock, container shipments, or becoming a partner?
+            Our sales team is ready to help.
+          </p>
+          <!-- TODO：邮箱确认后，把 mailto: 后面的地址改成真实邮箱 -->
+          <a class="btn btn-gold" href="mailto:info@example.com?subject=Stock%20list%20request">Request Stock List</a>
+        </div>
+
+        <!-- 联系方式列表：<dl> 是"名称—内容"成对的列表 -->
+        <dl class="contact-list">
+          <dt>Email</dt>
+          <!-- TODO：邮箱域名未确认（现网站 angelmusicaljp.com，资料表 angelmusical.com） -->
+          <dd><a class="todo" href="mailto:info@example.com">info@[TODO-confirm-domain]</a></dd>
+
+          <dt>Phone</dt>
+          <!-- TODO：现网站电话是假号码（000-000000000 / +8612345678911），请提供真实号码 -->
+          <dd><span class="todo">+86 [TODO-phone]</span></dd>
+
+          <dt>Address</dt>
+          <dd>No. 55 Xinhu Street, Yingkou Area,<br>China (Liaoning) Pilot Free Trade Zone, 115000</dd>
+
+          <dt>Office hours</dt>
+          <dd>Monday–Friday, 9:00–18:00<br>Beijing time (GMT+8) · Visits by appointment</dd>
+        </dl>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================================================================
+       9. 页脚 Footer：Logo（与页头同一文件）+ 公司名 + 地址 + 版权
+       ================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30" loading="lazy">
+        <p class="footer-tagline">Masterful Restoration · Lasting Value · Connecting the World</p>
+      </div>
+
+      <div class="footer-company">
+        <p>Angel Musical Instrument (Liaoning) Co., Ltd.</p>
+        <p lang="zh">安琦乐器（辽宁）有限公司</p>
+        <p>No. 55 Xinhu Street, Yingkou Area, China (Liaoning) Pilot Free Trade Zone, 115000</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#brands">Products</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#yingkou">Yingkou</a>
+        <a href="#contact">Contact</a>
+        <!-- 隐私政策页沿用现网站的 privacy.html -->
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 Angel Musical Instrument (Liaoning) Co., Ltd.</p>
+    </div>
+  </footer>
+
+  <!-- 唯一的一段 JavaScript：只负责"滚动到视频附近时再加载并播放"。
+       defer = 等页面内容加载完再运行，不拖慢首屏 -->
+  <script src="js/craft-video.js" defer></script>
+</body>
+</html>
