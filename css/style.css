@@ -1,0 +1,744 @@
+/* =====================================================================
+   Angel Musical 首页样式表（css/style.css）
+   ---------------------------------------------------------------------
+   本文件控制页面的"外观"。结构如下（从上到下）：
+     0. 字体文件（@font-face）
+     1. 设计变量（颜色、字体、间距）—— 想改配色，只改这里
+     2. 基础重置（让各浏览器表现一致）
+     3. 通用组件（容器、按钮、标题、区块）
+     4. 各区块样式（页头 → 首屏 → 口号 → 关于 → 工序 → 数据 → 品牌 → 联系 → 页脚）
+     5. 手机适配（@media，屏幕变窄时的调整）
+
+   小知识：
+   - 选择器 .xxx 表示"class 为 xxx 的元素"，对应 HTML 里的 class="xxx"
+   - rem 是相对单位，1rem = 根字号（默认 16px），方便整体缩放
+   - var(--xxx) 表示使用第 1 部分定义的变量
+   ===================================================================== */
+
+
+/* =====================================================================
+   0. 字体文件：自托管（字体文件放在 fonts/ 文件夹里）
+   ---------------------------------------------------------------------
+   为什么不用 Google Fonts 链接？
+   - 少连一个外部服务器，首屏更快（尤其在中国大陆，Google 常被屏蔽）
+   - 已裁剪为只含西文字符（约 23KB / 个），比完整字体小很多
+   - 两种字体都是 SIL OFL 开源授权，可免费商用（授权文件在 fonts/ 里）
+   font-display: swap = 字体没下载完时先用系统字体显示，不让文字空白
+   ===================================================================== */
+@font-face {
+  font-family: "Cinzel";
+  src: url("../fonts/cinzel-latin.woff2") format("woff2");
+  font-weight: 400 900;          /* 可变字体：一个文件包含 400–900 所有粗细 */
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/inter-latin.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* =====================================================================
+   1. 设计变量（:root 表示整个页面都能用）
+   ===================================================================== */
+:root {
+  /* —— 颜色 —— */
+  --graphite:      #121212;   /* 主深色：石墨黑（页头、深色区块） */
+  --graphite-2:    #1C1C1C;   /* 次深色：稍亮一点，用于分层 */
+  --graphite-3:    #0D0D0D;   /* 最深：页脚 */
+  --paper:         #F4F1EA;   /* 主浅色：温暖的米白 */
+  --paper-2:       #ECE7DC;   /* 次浅色 */
+  --ink:           #1A1A1A;   /* 浅底上的正文颜色 */
+  --ink-muted:     #5C564B;   /* 浅底上的次要文字 */
+  --on-dark:       #ECE8DF;   /* 深底上的正文颜色 */
+  --on-dark-muted: #9D968A;   /* 深底上的次要文字 */
+
+  /* 钛金色：只做点缀（细线、编号、按钮），不大面积使用 */
+  --gold:          #C0392B;
+  --gold-light:    #D8C08A;
+  --gold-deep:     #8C7445;   /* 浅底上用更深的金，保证看得清 */
+  --rule-dark:     rgba(184, 154, 94, 0.35);   /* 深底上的金色细线 */
+  --rule-light:    rgba(140, 116, 69, 0.35);   /* 浅底上的金色细线 */
+
+  /* —— 字体 —— */
+  --font-display: "Cinzel", "Trajan Pro", Georgia, serif;          /* 标题：罗马碑刻体 */
+  --font-body:    "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif; /* 正文 */
+
+  /* —— 尺寸与间距 —— */
+  --container:   1200px;     /* 内容最大宽度 */
+  --gutter:      40px;       /* 左右留白 */
+  --section-y:   144px;      /* 区块上下留白（大量留白 = 克制、高级） */
+  --header-h:    76px;       /* 页头高度 */
+}
+
+
+/* =====================================================================
+   2. 基础重置
+   ===================================================================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }   /* 宽度包含内边距和边框，算尺寸更直观 */
+
+html { scroll-behavior: smooth; }       /* 点击导航时平滑滚动 */
+/* 跳转到区块时，留出页头的高度，标题不会被页头挡住 */
+:target, section[id] { scroll-margin-top: var(--header-h); }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;           /* 16px */
+  line-height: 1.7;          /* 行距稍大，更易读 */
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; height: auto; }   /* 图片不会撑破容器 */
+h1, h2, h3, p, figure, blockquote, dl, dd, ol, ul { margin: 0; }
+a { color: inherit; }
+
+/* "跳到正文"链接：平时藏起来，按 Tab 键聚焦时出现 */
+.skip-link {
+  position: absolute; left: 16px; top: -60px;
+  padding: 10px 16px; background: var(--gold); color: var(--graphite);
+  z-index: 100;
+}
+.skip-link:focus { top: 16px; }
+
+
+/* =====================================================================
+   3. 通用组件
+   ===================================================================== */
+
+/* 容器：限制内容宽度并居中，所有区块共用 */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* 区块：统一的上下留白 */
+.section { padding: var(--section-y) 0; }
+.section-light { background: var(--paper); color: var(--ink); }
+.section-dark  { background: var(--graphite); color: var(--on-dark); }
+.section-border { border-top: 1px solid var(--rule-light); }   /* 两个浅色区块之间加一条细金线 */
+
+/* 两栏网格：左 5 份、右 7 份（像一张 12 栏的格子纸） */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 96px;
+  align-items: start;
+}
+
+/* 区块编号小字，如 "01 — WHO WE ARE" */
+.section-no {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;    /* 字母间距拉宽 = 庄重 */
+  text-transform: uppercase; /* 自动转大写 */
+  color: var(--gold-deep);
+  margin-bottom: 28px;
+}
+.section-dark .section-no { color: var(--gold); }
+
+/* 区块大标题：Cinzel 碑刻体 */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2rem, 3.4vw, 3rem);   /* clamp(最小, 随屏幕变化, 最大) */
+  line-height: 1.18;
+  letter-spacing: 0.02em;
+}
+.section-head-wide { max-width: 960px; margin-bottom: 72px; }
+.section-intro {
+  margin-top: 24px;
+  font-size: 1.0625rem;
+  color: var(--ink-muted);
+  max-width: 560px;
+}
+.section-dark .section-intro { color: var(--on-dark-muted); }
+
+/* 按钮：直角、细边框、宽字距 —— 克制，不用圆角和阴影 */
+.btn {
+  display: inline-block;
+  padding: 16px 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color .2s, color .2s, border-color .2s;  /* 鼠标悬停时颜色平滑过渡 */
+}
+.btn-gold { background: var(--gold); color: var(--graphite); border-color: var(--gold); }
+.btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
+.btn-ghost { color: var(--on-dark); border-color: rgba(236, 232, 223, 0.45); }
+.btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+.button-row { display: flex; flex-wrap: wrap; gap: 16px; }
+
+/* 文字链接，如 "View all models →" */
+.text-link {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--gold-deep);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule-light);
+}
+.text-link:hover { border-color: var(--gold-deep); }
+
+/* 键盘聚焦时显示金色外框（无障碍） */
+a:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
+
+/* TODO 占位内容：用虚线下划线标出来，上线前一眼能找到 */
+.todo { border-bottom: 1px dashed currentColor; opacity: .85; }
+
+
+/* =====================================================================
+   4-1. 页头 Header
+   ===================================================================== */
+.site-header {
+  position: sticky;          /* 滚动时固定在顶部 */
+  top: 0;
+  z-index: 50;
+  background: var(--graphite);
+  border-bottom: 1px solid var(--rule-dark);
+}
+.header-inner {
+  height: var(--header-h);
+  display: flex;             /* 横向排列：Logo | 导航 | 语言 */
+  align-items: center;
+  gap: 48px;
+}
+.brand img { height: 30px; width: auto; }
+
+.main-nav {
+  display: flex;
+  gap: 40px;
+  margin-left: auto;         /* 把导航推到右边 */
+}
+.main-nav a,
+.lang-switch a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--on-dark-muted);
+  transition: color .2s;
+}
+.main-nav a:hover,
+.lang-switch a:hover,
+.lang-switch a[aria-current] { color: var(--gold-light); }
+
+.lang-switch {
+  display: flex;
+  gap: 14px;
+  padding-left: 32px;
+  border-left: 1px solid var(--rule-dark);   /* 和导航之间的竖线 */
+}
+.lang-switch a { letter-spacing: 0.08em; }
+
+
+/* =====================================================================
+   4-2. 首屏 Hero
+   ===================================================================== */
+.hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-h));   /* 占满第一屏 */
+  min-height: calc(100svh - var(--header-h));  /* 手机浏览器更准确的写法 */
+  max-height: 920px;
+  display: flex;
+  align-items: flex-end;     /* 文字放在下方 */
+  color: var(--on-dark);
+  /* 背景 = 渐变遮罩（左深右浅，保证文字清晰）+ 真实仓库照片 */
+  background:
+    linear-gradient(90deg, rgba(18,18,18,.94) 0%, rgba(18,18,18,.78) 38%, rgba(18,18,18,.28) 75%, rgba(18,18,18,.18) 100%),
+    linear-gradient(0deg, rgba(18,18,18,.85) 0%, rgba(18,18,18,0) 40%),
+    url("../images/hero-factory.webp") center 55% / cover no-repeat;
+  background-color: var(--graphite);
+}
+.hero-inner { padding-top: 120px; padding-bottom: 112px; }
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 32px;
+}
+/* 小标题前的金色短线（用 ::before 伪元素画，不需要额外图片） */
+.eyebrow::before {
+  content: "";
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 4.4vw, 4rem);
+  line-height: 1.12;
+  letter-spacing: 0.015em;
+  color: #F4F1EA;
+}
+.hero-lead {
+  margin: 32px 0 48px;
+  max-width: 520px;
+  font-size: 1.125rem;
+  color: rgba(236, 232, 223, 0.82);
+}
+
+
+/* =====================================================================
+   4-3. 口号带 Tagline band
+   ===================================================================== */
+.tagline-band {
+  background: var(--graphite-2);
+  border-top: 1px solid var(--rule-dark);
+  border-bottom: 1px solid var(--rule-dark);
+  padding: 34px 0;
+  text-align: center;
+}
+.tagline-band p {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.tagline-band span { margin: 0 0.6em; color: var(--gold-deep); }
+
+
+/* =====================================================================
+   4-4. 关于我们 Who we are
+   ===================================================================== */
+.prose p + p { margin-top: 1.25em; }     /* 段落之间的间距 */
+.prose { font-size: 1.0625rem; color: #33302B; max-width: 620px; }
+
+/* 引言：左侧金色细线 + 衬线字体 */
+.quote {
+  margin: 48px 0;
+  padding: 8px 0 8px 32px;
+  border-left: 1px solid var(--gold);
+}
+.quote p {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+
+/* =====================================================================
+   4-5. 十道工序 Process
+   ===================================================================== */
+/* 三张照片横排 */
+.photo-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 96px;
+}
+.photo-row img {
+  width: 100%;
+  aspect-ratio: 4 / 3;       /* 统一裁成 4:3 */
+  object-fit: cover;
+  filter: saturate(0.82);    /* 稍微降低饱和度，让色调更统一、沉稳 */
+}
+.photo-row figcaption {
+  margin-top: 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* 编号列表：两列，用 CSS 计数器自动生成罗马数字 I–X */
+.steps {
+  list-style: none;          /* 去掉浏览器默认的 1. 2. 3. */
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 96px;
+  counter-reset: step;       /* 计数器从 0 开始 */
+  border-top: 1px solid var(--rule-light);
+}
+.steps li {
+  counter-increment: step;   /* 每个 li 计数器 +1 */
+  display: grid;
+  grid-template-columns: 72px 1fr;   /* 左边编号、右边文字 */
+  grid-template-rows: auto 1fr;
+  column-gap: 8px;
+  padding: 32px 0 36px;
+  border-bottom: 1px solid var(--rule-light);
+}
+/* 编号：upper-roman = 大写罗马数字，像刻在金属铭牌上的编号 */
+.steps li::before {
+  content: counter(step, upper-roman);
+  grid-row: 1 / 3;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--gold-deep);
+  /* 极轻的白色高光，产生"刻进纸面"的凹刻感 */
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.steps h3 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.steps p { font-size: 0.9375rem; color: var(--ink-muted); }
+
+
+/* =====================================================================
+   4-4b. 关于我们下方的宽幅航拍照片
+   ===================================================================== */
+.wide-photo { margin-top: 112px; }
+.wide-photo img {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+  filter: saturate(0.85);
+}
+.wide-photo figcaption,
+.craft-media figcaption {
+  margin-top: 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+
+/* =====================================================================
+   4-5b. 工艺视频带 Craft video
+   ===================================================================== */
+.craft { border-top: 1px solid var(--rule-dark); }
+.craft-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;  /* 左边文字占剩余空间，右边视频按自身宽度 */
+  gap: 96px;
+  align-items: center;
+}
+.craft-text .section-intro { max-width: 480px; }
+.craft-media {
+  margin: 0;
+  width: 380px;                      /* 竖版 9:16 视频：限制宽度，避免在电脑上过高 */
+  justify-self: end;                 /* 靠右对齐 */
+}
+.craft-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;              /* 竖版 9:16，与视频文件比例一致（720x1280） */
+  object-fit: cover;
+  background: var(--graphite-2);     /* 视频/封面还没出来时的底色 */
+  outline: 1px solid var(--rule-dark);
+  outline-offset: 12px;              /* 外面一圈细金线"画框"，克制的装饰 */
+}
+.craft-media figcaption { color: var(--on-dark-muted); margin-top: 26px; }
+
+
+/* =====================================================================
+   4-6. 数据 Numbers
+   ===================================================================== */
+.numbers { padding: 112px 0; border-top: 1px solid var(--rule-dark); }   /* 与上方视频带之间加细金线分隔 */
+.stats {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.stats li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 8px 24px;
+}
+.stats li + li { border-left: 1px solid var(--rule-dark); }   /* 数字之间的竖线 */
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 5vw, 4.25rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--gold-light);
+  font-variant-numeric: lining-nums;
+}
+.stat-todo { opacity: .55; }    /* TODO：未确认的数字先显示成半透明 */
+.stat-label {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-dark-muted);
+}
+
+
+/* =====================================================================
+   4-7. 品牌 Brands
+   ===================================================================== */
+.brands-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 72px;
+  align-items: stretch;
+}
+.brands-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  filter: saturate(0.8);
+}
+.brand-cards { display: flex; flex-direction: column; }
+.brand-card {
+  padding: 36px 0;
+  border-top: 1px solid var(--rule-light);
+}
+.brand-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+/* dl 定义列表：左边 dt（Upright/Grand），右边 dd（型号） */
+.brand-card dl {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  row-gap: 10px;
+  font-size: 0.9375rem;
+}
+.brand-card dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  padding-top: 3px;
+}
+.brand-card dd { color: #33302B; word-spacing: 0.15em; }
+/* 每个型号用 <span> 包起来，nowrap = 型号本身不会被拆成两行（例如 K-500 不会断成 K- / 500） */
+.brand-card dd span { white-space: nowrap; }
+.brands-note {
+  padding: 28px 0 32px;
+  border-top: 1px solid var(--rule-light);
+  color: var(--ink-muted);
+}
+.brand-cards .text-link { align-self: flex-start; }
+
+
+/* =====================================================================
+   4-7b. 我们的城市 Our City — Yingkou
+   ===================================================================== */
+.city-grid {
+  display: grid;
+  grid-template-columns: 7fr 4fr;    /* 左边文字宽，右边小图窄 */
+  gap: 96px;
+  align-items: end;                  /* 图片与文字底部对齐，显得稳重 */
+}
+.city-text .section-title { margin-bottom: 40px; }
+.city-prose { max-width: 640px; }
+.city-photo { margin: 0; }
+.city-photo img {
+  width: 100%;
+  aspect-ratio: 3 / 4;               /* 竖版 3:4，与图片文件比例一致 */
+  object-fit: cover;
+}
+.city-photo figcaption {
+  margin-top: 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* =====================================================================
+   4-8. 联系 Contact
+   ===================================================================== */
+.contact .section-intro { margin-bottom: 48px; }
+.contact-list {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  border-top: 1px solid var(--rule-dark);
+}
+.contact-list dt,
+.contact-list dd {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--rule-dark);
+}
+.contact-list dt {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 30px;
+}
+.contact-list dd { color: var(--on-dark); font-size: 1.0625rem; }
+.contact-list a { text-decoration: none; }
+.contact-list a:hover { color: var(--gold-light); }
+
+
+/* =====================================================================
+   4-9. 页脚 Footer
+   ===================================================================== */
+.site-footer {
+  background: var(--graphite-3);
+  color: var(--on-dark-muted);
+  border-top: 1px solid var(--rule-dark);
+  font-size: 0.875rem;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 5fr 5fr 2fr;
+  gap: 48px;
+  padding-top: 80px;
+  padding-bottom: 64px;
+}
+.footer-brand img { height: 30px; width: auto; }   /* 与页头同尺寸、同文件 */
+.footer-tagline {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: .8;
+  max-width: 360px;
+  line-height: 2;
+}
+.footer-company p + p { margin-top: 6px; }
+.footer-company p:first-child { color: var(--on-dark); }
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+.footer-nav a {
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.footer-nav a:hover { color: var(--gold-light); }
+.footer-bottom {
+  padding-top: 24px;
+  padding-bottom: 32px;
+  border-top: 1px solid rgba(184, 154, 94, 0.18);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+}
+/* 让底部分隔线只在内容宽度内显示 */
+.footer-bottom { border-top: none; position: relative; }
+.footer-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0; left: var(--gutter); right: var(--gutter);
+  height: 1px;
+  background: rgba(184, 154, 94, 0.18);
+}
+
+
+/* =====================================================================
+   5. 手机 / 平板适配
+   ---------------------------------------------------------------------
+   @media (max-width: 960px) 的意思是：
+   "屏幕宽度小于等于 960px 时，用下面这些规则覆盖上面的规则"
+   ===================================================================== */
+@media (max-width: 960px) {
+  :root {
+    --gutter: 24px;
+    --section-y: 96px;
+    --header-h: 112px;       /* 手机上导航换到第二行，页头变高 */
+  }
+
+  /* 页头：Logo + 语言在第一行，导航在第二行 */
+  .header-inner {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 0;
+    padding-top: 18px;
+    padding-bottom: 0;
+  }
+  .brand img { height: 24px; }
+  .lang-switch { margin-left: auto; padding-left: 0; border-left: 0; }
+  .main-nav {
+    order: 3;                /* 排到最后 = 第二行 */
+    width: 100%;
+    margin: 16px 0 0;
+    padding: 14px 0;
+    gap: 0;
+    justify-content: space-between;
+    border-top: 1px solid var(--rule-dark);
+  }
+  .main-nav a { font-size: 0.6875rem; letter-spacing: 0.16em; }
+
+  .grid-2,
+  .brands-grid { grid-template-columns: 1fr; gap: 48px; }   /* 两栏变一栏 */
+
+  .hero { align-items: flex-end; }
+  .hero-inner { padding-top: 96px; padding-bottom: 64px; }
+  .hero {
+    /* 手机上遮罩改为从下往上，照片露出上半部分 */
+    background:
+      linear-gradient(0deg, rgba(18,18,18,.96) 0%, rgba(18,18,18,.82) 50%, rgba(18,18,18,.35) 100%),
+      url("../images/hero-factory.webp") 62% 50% / cover no-repeat;
+  }
+  .eyebrow { align-items: flex-start; gap: 14px; }
+  .eyebrow::before { width: 24px; margin-top: 0.7em; flex-shrink: 0; }
+  .hero-lead { font-size: 1rem; margin: 24px 0 36px; }
+  .button-row .btn { flex: 1 1 100%; text-align: center; }   /* 按钮占满一行，好点 */
+
+  .tagline-band { padding: 26px 0; }
+  .tagline-band p { font-size: 0.75rem; letter-spacing: 0.22em; line-height: 2.2; }
+  .tagline-band span { display: block; height: 0; overflow: hidden; }  /* 手机上口号分三行，隐藏圆点 */
+
+  .photo-row { grid-template-columns: 1fr; gap: 32px; margin-bottom: 64px; }
+  .wide-photo { margin-top: 64px; }
+  .wide-photo img { aspect-ratio: 16 / 10; }
+  .craft-grid { grid-template-columns: 1fr; gap: 48px; }
+  .craft-video { outline-offset: 8px; }
+  .craft-media { width: 100%; max-width: 340px; justify-self: center; }  /* 手机上居中，最宽 340px */
+  .steps { grid-template-columns: 1fr; }
+  .steps li { grid-template-columns: 56px 1fr; padding: 26px 0 28px; }
+
+  .stats { grid-template-columns: 1fr; }
+  .stats li { padding: 36px 0; }
+  .stats li + li { border-left: 0; border-top: 1px solid var(--rule-dark); }
+
+  .brands-photo { min-height: 0; aspect-ratio: 4 / 3; height: auto; }
+  .brand-card dl { grid-template-columns: 90px 1fr; }
+
+  .city-grid { grid-template-columns: 1fr; gap: 48px; }
+  .city-photo { max-width: 300px; }   /* 手机上图片不要占满，保持"小图"的感觉 */
+  .contact-list { grid-template-columns: 1fr; }
+  .contact-list dt { padding: 22px 0 4px; border-bottom: 0; }
+  .contact-list dd { padding: 0 0 22px; }
+
+  .footer-tagline { max-width: 260px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 36px; padding-top: 64px; }
+}
