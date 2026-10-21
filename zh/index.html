@@ -1,0 +1,453 @@
+<!doctype html>
+<!--
+  =====================================================================
+  Angel Musical 首页原型（index.html）
+  ---------------------------------------------------------------------
+  这是网站的"骨架"：只负责内容和结构（标题、段落、图片、链接）。
+  所有"长什么样"（颜色、字体、间距、排版）都写在 css/style.css 里。
+  阅读顺序：从上到下 = 页面从上到下。
+  每个大区块都用 <section> 包起来，并配有中文注释说明用途。
+
+  ★ 这是【简体中文版】（zh/index.html），由英文版逐段翻译，结构和 ID 与英文版完全相同。
+    因为本文件在 zh/ 子文件夹里，图片、样式等共享文件的路径前面都加了 ../（上一级文件夹）。
+  ★ 标有 TODO 的地方是"待确认信息"，上线前必须替换成真实内容。
+  =====================================================================
+-->
+<html lang="zh-CN">
+<head>
+  <!-- 字符编码：UTF-8 让中文、日文、英文都能正常显示 -->
+  <meta charset="utf-8">
+  <!-- 让手机按设备宽度显示页面，而不是缩小成电脑版 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- 浏览器标签页标题 + 搜索引擎显示的标题 -->
+  <title>Angel Musical 安琦乐器 — 日本翻新钢琴 · 同业批发供应</title>
+  <!-- 搜索引擎结果里显示的简介（用的是现网站和资料表里的真实文案） -->
+  <meta name="description" content="Angel Musical（安琦乐器）向 10 多个国家的琴行、经销商和分销商供应日本翻新钢琴。仅面向同业。">
+
+  <!-- 多语言版本声明（hreflang）：告诉搜索引擎这三个页面是同一内容的不同语言版本。
+       x-default = 默认版本（英文）。注意：angelmusical.com 域名还没绑定到新网站，绑定后即生效 -->
+  <link rel="alternate" hreflang="en" href="https://angelmusical.com/">
+  <link rel="alternate" hreflang="zh-CN" href="https://angelmusical.com/zh/">
+  <link rel="alternate" hreflang="ja" href="https://angelmusical.com/ja/">
+  <link rel="alternate" hreflang="x-default" href="https://angelmusical.com/">
+
+  <!-- 网站小图标（浏览器标签页上的那个 A）。SVG 清晰，PNG 作为兼容备用 -->
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../images/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+
+  <!-- 预加载首屏要用的字体和大图，让首屏更快出现 -->
+  <link rel="preload" href="../fonts/cinzel-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../images/hero-factory.webp" as="image">
+
+  <!-- 引入样式表：所有外观都在这里 -->
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <!-- 无障碍"跳到正文"链接：用键盘 Tab 键时才会出现，方便视障用户 -->
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <!-- =================================================================
+       1. 页头 Header：Logo + 导航 + 语言切换
+       ================================================================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <!-- Logo：点击回到首页。页头和页脚用的是同一个文件，保证全站统一 -->
+      <a class="brand" href="index.html" aria-label="Angel Musical — 首页">
+        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30">
+      </a>
+
+      <!-- 主导航：# 开头的链接会跳到本页对应的区块 -->
+      <nav class="main-nav" aria-label="主导航">
+        <a href="#brands">产品</a>
+        <a href="#process">工序</a>
+        <a href="#about">关于我们</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+
+      <!-- 语言切换：三个语言版本互相链接。
+           aria-current="page" 标记"当前所在的语言"，读屏软件会读出来，CSS 也用它把当前语言变成金色 -->
+      <div class="lang-switch" aria-label="语言">
+        <a href="../index.html" lang="en" hreflang="en">EN</a>
+        <a href="index.html" lang="zh-CN" hreflang="zh-CN" aria-current="page">中</a>
+        <a href="../ja/index.html" lang="ja" hreflang="ja">日</a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- main：页面的主要内容都在这里面 -->
+  <main id="main">
+
+    <!-- ===============================================================
+         2. 首屏 Hero：大图 + 主标题 + 两个按钮
+         背景大图在 CSS 里设置（.hero），这里只放文字
+         =============================================================== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <!-- 小标题（资料表首页文案） -->
+        <p class="eyebrow">品质如一 · 专业钢琴供应</p>
+
+        <!-- 主标题：整页唯一的 h1，搜索引擎最看重 -->
+        <h1 class="hero-title">日本翻新钢琴，<br>只供同业。</h1>
+
+        <!-- 副标题（现网站 About 页文案） -->
+        <p class="hero-lead">
+          Angel Musical 向 10 多个国家的琴行、经销商和分销商供应日本翻新钢琴。
+        </p>
+
+        <!-- 两个按钮：都跳到页面底部的联系区 -->
+        <div class="button-row">
+          <a class="btn btn-gold" href="#contact">索取库存清单</a>
+          <a class="btn btn-ghost" href="#contact">成为合作伙伴</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         3. 品牌口号带 Tagline band（资料表里的公司口号）
+         =============================================================== -->
+    <section class="tagline-band" aria-label="公司口号">
+      <div class="container">
+        <p>匠心修复 <span aria-hidden="true">·</span> 恒久价值 <span aria-hidden="true">·</span> 连接世界</p>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         4. 关于我们 Who we are（文案全部来自现网站 About 页）
+         左边：编号 + 大标题；右边：正文
+         =============================================================== -->
+    <section class="section section-light" id="about">
+      <div class="container grid-2">
+
+        <div class="section-head">
+          <p class="section-no">01 — 关于我们</p>
+          <h2 class="section-title">只做同业供应，<br>不做零售。</h2>
+        </div>
+
+        <div class="prose">
+          <p>
+            安琦乐器（辽宁）有限公司于 2020 年在营口综合保税区开展业务，专注于进口二手钢琴的保税物流。
+          </p>
+          <p>
+            采购、整备到出口物流，均由我们负责，您只需专注于销售。我们建立的每一段合作，都着眼长远。
+          </p>
+
+          <!-- 引言：用细金线和衬线字体突出公司理念 -->
+          <blockquote class="quote">
+            <p>在这一行，口碑来得比货慢，却留得比货久。</p>
+          </blockquote>
+
+          <p>
+            比起追逐一时的成交，我们更愿意一批货、一批货地赢得信任。货量有起有落，合作关系不该如此。
+          </p>
+        </div>
+
+      </div>
+
+      <!-- 厂区航拍照片（公司自己拍摄）。宽幅 21:9，放在关于我们的下方 -->
+      <div class="container">
+        <figure class="wide-photo">
+          <img src="../images/about-facility.webp" alt="Angel Musical 营口厂区航拍" width="1600" height="686" loading="lazy">
+          <figcaption>我们的厂区 · 营口</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         5. 十道工序 The 10-step process（文案来自现网站 Services 页）
+         上面 3 张工艺照片，下面是编号列表 <ol>
+         =============================================================== -->
+    <section class="section section-light section-border" id="process">
+      <div class="container">
+
+        <div class="section-head section-head-wide">
+          <p class="section-no">02 — 工序</p>
+          <h2 class="section-title">十道工序，台台如此。</h2>
+          <p class="section-intro">
+            从入库检验到装箱出运，每个环节都设有质检，只有合格的钢琴才会进入发运。
+          </p>
+        </div>
+
+        <!-- 三张真实工艺照片。loading="lazy" = 滚动到附近才加载，省流量 -->
+        <div class="photo-row">
+          <figure>
+            <img src="../images/process-action.webp" alt="翻新中的立式钢琴，机芯与琴键外露" width="1000" height="750" loading="lazy">
+            <figcaption>机芯部件</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/process-voicing.webp" alt="技师正在为琴槌整音" width="1000" height="667" loading="lazy">
+            <figcaption>整音与调律</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/process-export.webp" alt="叉车将钢琴装入集装箱" width="1000" height="750" loading="lazy">
+            <figcaption>装箱出运</figcaption>
+          </figure>
+        </div>
+
+        <!-- 编号列表：<ol> 是"有序列表"，编号样式由 CSS 控制（I、II、III…） -->
+        <ol class="steps">
+          <li>
+            <h3>入库检验</h3>
+            <p>钢琴运抵中央仓库后，每一台都要经过专业评估；只有能够翻新至接近全新状态的钢琴，才会进入车间。</p>
+          </li>
+          <li>
+            <h3>深度清洁</h3>
+            <p>对内部与外部进行彻底清洁，去除多年积累的灰尘、污渍和残留物。</p>
+          </li>
+          <li>
+            <h3>外壳翻新与镜面抛光</h3>
+            <p>经精细打磨与抛光，去除划痕和瑕疵，呈现镜面效果。</p>
+          </li>
+          <li>
+            <h3>键面抛光与更换</h3>
+            <p>键面抛光至象牙般顺滑的手感；开裂或损坏的键面，以相匹配的材料更换。</p>
+          </li>
+          <li>
+            <h3>机芯部件更换</h3>
+            <p>技师更换并调整内部机芯部件，每个零件都必须达到 0.01&nbsp;mm 的公差要求。</p>
+          </li>
+          <li>
+            <h3>整琴大修</h3>
+            <p>对于需要全面升级的客户，我们重建琴弦、琴槌等核心部件，并进行精确调整。</p>
+          </li>
+          <li>
+            <h3>机芯调整与键床调校</h3>
+            <p>按出厂规格测量并调整键重、键高与键深。</p>
+          </li>
+          <li>
+            <h3>整调、整音与调律</h3>
+            <p>逐音调整，使全音域音色均匀、平衡，随后进行精准调律。</p>
+          </li>
+          <li>
+            <h3>出货前终检</h3>
+            <p>逐一核验所有部件。发现任何缺陷即须返工；只有合格的钢琴才会进入发运。</p>
+          </li>
+          <li>
+            <h3>装箱与出口</h3>
+            <p>翻新完成的钢琴经专业包装装入海运集装箱，从大连港发往世界各地的合作伙伴。</p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         5b. 工艺视频带 Craft video（公司自己拍摄的车间视频，已去除全部声音）
+         左边文字、右边竖版视频。
+         - muted：静音（浏览器只允许静音视频自动播放）
+         - loop：循环播放
+         - playsinline：在 iPhone 上不自动全屏
+         - poster：视频加载前 / 不播放时显示的封面图
+         - preload="none"：先不下载视频，等滚动到附近时由 js/craft-video.js 再加载（省流量）
+         如果访客的系统设置了"减少动态效果"，视频不会自动播放，只显示封面和播放按钮。
+         =============================================================== -->
+    <section class="section section-dark craft" aria-label="走进车间">
+      <div class="container craft-grid">
+
+        <div class="craft-text">
+          <p class="section-no">走进车间</p>
+          <h2 class="section-title">这一环节，<br>决定演奏表现。</h2>
+          <p class="section-intro">
+            在专用的室内工作区，技师更换并调整内部机芯部件，每个零件都必须达到0.01&nbsp;mm 的公差要求，带来灵敏而舒适的触键。
+          </p>
+        </div>
+
+        <figure class="craft-media">
+          <video class="craft-video" muted loop playsinline preload="none"
+                 poster="../images/craft-poster.webp" width="720" height="1280"
+                 aria-label="车间实拍：打开的立式钢琴与正在工作的技师">
+            <!-- 两种格式：浏览器会自动选第一个它支持的。WebM 更小，MP4 兼容性最好 -->
+            <source data-src="../video/craft-loop.webm" type="video/webm">
+            <source data-src="../video/craft-loop.mp4" type="video/mp4">
+          </video>
+          <figcaption>车间实拍 · Angel Musical</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         6. 数据 Numbers（深色背景）
+         =============================================================== -->
+    <section class="section section-dark numbers" aria-label="公司规模">
+      <div class="container">
+        <ul class="stats">
+          <li>
+            <span class="stat-value">10+</span>
+            <span class="stat-label">国家和地区</span>
+          </li>
+          <li>
+            <span class="stat-value">10,000+</span>
+            <span class="stat-label">年出口钢琴（台）</span>
+          </li>
+          <li>
+            <span class="stat-value">50+</span>
+            <span class="stat-label">团队成员</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         7. 品牌 Brands（型号来自现网站 Products 页）
+         左：照片；右：两个品牌卡片
+         =============================================================== -->
+    <section class="section section-light" id="brands">
+      <div class="container">
+
+        <div class="section-head section-head-wide">
+          <p class="section-no">03 — 产品</p>
+          <h2 class="section-title">雅马哈、卡瓦依，<br>立式与三角钢琴。</h2>
+        </div>
+
+        <div class="brands-grid">
+          <img class="brands-photo" src="../images/brands-uprights.webp" alt="仓库中成排的翻新立式钢琴" width="960" height="1125" loading="lazy">
+
+          <div class="brand-cards">
+            <!-- 一个品牌 = 一张卡片 <article> -->
+            <article class="brand-card">
+              <h3>Yamaha</h3>
+              <dl>
+                <dt>立式</dt><dd><span>U30MhC&nbsp;·</span> <span>UX30BiC&nbsp;·</span> <span>YU10SG&nbsp;·</span> <span>W3AWn&nbsp;·</span> <span>b113DMC</span></dd>
+                <dt>三角</dt><dd><span>G2B&nbsp;·</span> <span>C1SN&nbsp;·</span> <span>C3XA&nbsp;·</span> <span>C7X&nbsp;·</span> <span>C2XCP</span></dd>
+              </dl>
+            </article>
+
+            <article class="brand-card">
+              <h3>Kawai</h3>
+              <dl>
+                <dt>立式</dt><dd><span>K-5&nbsp;·</span> <span>KL-90RB/S&nbsp;·</span> <span>Kb-15J&nbsp;·</span> <span>K-500&nbsp;·</span> <span>AE-80</span></dd>
+                <dt>三角</dt><dd><span>GS-30M&nbsp;·</span> <span>RX-2A&nbsp;·</span> <span>RX-3A&nbsp;·</span> <span>RX-1G&nbsp;·</span> <span>RX-1H</span></dd>
+              </dl>
+            </article>
+
+            <p class="brands-note">另有其他日本品牌的立式与三角钢琴可供选择。</p>
+
+            <!-- TODO：产品页还没做，做好后链接到 products.html -->
+            <a class="text-link" href="../products.html">查看全部型号 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         7b. 我们的城市 Our City — Yingkou（营口）
+         介绍公司所在城市的历史：1861 年开埠、东北第一个通商口岸、牛庄海关。
+         所有日期和事实均已核对（来源见报告）。
+         左边：编号 + 标题 + 正文；右边：一张小的竖版照片（营口的教堂，公司自己拍摄）
+         =============================================================== -->
+    <section class="section section-light section-border" id="yingkou">
+      <div class="container city-grid">
+
+        <div class="city-text">
+          <p class="section-no">04 — 1861 年开埠 · 通商口岸</p>
+          <h2 class="section-title">我们的城市——营口</h2>
+
+          <div class="prose city-prose">
+            <p>
+              安琦乐器位于辽宁营口，地处辽河入辽东湾之处。根据 1858 年《天津条约》，牛庄被辟为对外通商口岸；因牛庄一带河道淤浅，口岸于 1861 年改在下游的营口开埠，成为东北第一个对外通商口岸。西方商人沿用条约中的名称，仍称这里为“牛庄”（Newchwang）。
+            </p>
+            <p>
+              1864 年，牛庄海关在此设立，是东北地区最早的海关。此后数十年间，营口是东北对外贸易的主要出海口；各国领事馆、洋行、银行和教堂相继出现，那个时代的建筑至今仍伫立在老城的河畔。
+            </p>
+            <p>
+              如今，营口港及其深水港区鲅鱼圈港区是东北最大的港口之一，向南约 200&nbsp;公里即是大连。我们所在的这座城市，与世界通商已逾 160 年。
+            </p>
+          </div>
+        </div>
+
+        <!-- 小图：营口天主教堂（站前区八田地里16号，营口国际酒店附近）。
+             1988年8月动工、1991年10月祝圣的仿哥特式重建教堂（来源见报告）。
+             现在的主保名称（如“耶稣圣诞堂”）未能从可靠来源确认，所以图注不写。
+             width/height 写真实尺寸，浏览器可以提前留好位置，页面不会跳动 -->
+        <figure class="city-photo">
+          <img src="../images/yingkou-church.webp"
+               alt="营口天主教堂：红白相间的哥特式教堂，尖塔高耸，背景为晴朗的蓝天"
+               width="600" height="800" loading="lazy">
+          <figcaption>营口天主教堂，1988–1991 年按哥特式风格重建</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         8. 联系 Contact（深色背景）
+         =============================================================== -->
+    <section class="section section-dark contact" id="contact">
+      <div class="container grid-2">
+
+        <div class="section-head">
+          <p class="section-no">05 — 联系我们</p>
+          <h2 class="section-title">与 Angel Musical<br>携手合作</h2>
+          <p class="section-intro">
+            想了解库存、集装箱发运或合作事宜？我们的销售团队随时为您服务。
+          </p>
+          <!-- TODO：邮箱确认后，把 mailto: 后面的地址改成真实邮箱 -->
+          <a class="btn btn-gold" href="mailto:angelpiano7788@gmail.com?subject=%E7%B4%A2%E5%8F%96%E5%BA%93%E5%AD%98%E6%B8%85%E5%8D%95">索取库存清单</a>
+        </div>
+
+        <!-- 联系方式列表：<dl> 是"名称—内容"成对的列表 -->
+        <dl class="contact-list">
+          <dt>邮箱</dt>
+          <dd><a href="mailto:angelpiano7788@gmail.com">angelpiano7788@gmail.com</a></dd>
+
+          <dt>电话</dt>
+          <!-- tel: 链接：手机上点一下就能直接拨号 -->
+          <dd><a href="tel:+8618641733456">+86 186 4173 3456</a></dd>
+
+          <dt>地址</dt>
+          <dd>中国（辽宁）自由贸易试验区营口片区<br>新湖街 55 号　邮编 115000</dd>
+
+          <dt>办公时间</dt>
+          <dd>周一至周五 9:00–18:00<br>北京时间（GMT+8）· 来访请提前预约</dd>
+        </dl>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =================================================================
+       9. 页脚 Footer：Logo（与页头同一文件）+ 公司名 + 地址 + 版权
+       ================================================================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30" loading="lazy">
+        <p class="footer-tagline">匠心修复 · 恒久价值 · 连接世界</p>
+      </div>
+
+      <div class="footer-company">
+        <p>安琦乐器（辽宁）有限公司</p>
+        <p lang="en">Angel Musical Instrument (Liaoning) Co., Ltd.</p>
+        <p>中国（辽宁）自由贸易试验区营口片区新湖街 55 号　邮编 115000</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="页脚导航">
+        <a href="#brands">产品</a>
+        <a href="#process">工序</a>
+        <a href="#about">关于我们</a>
+        <a href="#yingkou">营口</a>
+        <a href="#contact">联系我们</a>
+        <!-- 隐私政策页沿用现网站的 privacy.html -->
+        <a href="../privacy.html">隐私政策</a>
+      </nav>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>© 2026 安琦乐器（辽宁）有限公司</p>
+    </div>
+  </footer>
+
+  <!-- 唯一的一段 JavaScript：只负责"滚动到视频附近时再加载并播放"。
+       defer = 等页面内容加载完再运行，不拖慢首屏 -->
+  <script src="../js/craft-video.js" defer></script>
+</body>
+</html>

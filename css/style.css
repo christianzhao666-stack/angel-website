@@ -742,3 +742,90 @@ a:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
   .footer-tagline { max-width: 260px; }
   .footer-inner { grid-template-columns: 1fr; gap: 36px; padding-top: 64px; }
 }
+
+
+/* =====================================================================
+   6. 中文版 / 日文版（zh/index.html、ja/index.html）的字体与排版调整
+   ---------------------------------------------------------------------
+   为什么需要？
+   - Cinzel 和 Inter 只包含西文字母（为了文件小），没有汉字和假名。
+     浏览器遇到汉字时会去"下一个字体"里找，所以要在后面接上中文 / 日文的系统字体。
+     写法：先 Cinzel / Inter（让英文字母、数字保持原样），再接中日文字体。
+   - 全部是访客电脑上自带的系统字体，不下载任何字体文件，也不用收费字体。
+   - :lang(zh) 只对 <html lang="zh-CN"> 的页面（以及 lang="zh" 的片段）生效；
+     :lang(ja) 只对日文页面生效。英文页面完全不受影响。
+   ===================================================================== */
+html:lang(zh) {
+  /* 标题：宋体类（衬线），与 Cinzel 的碑刻感最接近 */
+  --font-display: "Cinzel", "Songti SC", "Noto Serif SC", "Noto Serif CJK SC", "SimSun", serif;
+  /* 正文：黑体类（无衬线） */
+  --font-body: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
+}
+html:lang(ja) {
+  /* 見出し：明朝体 */
+  --font-display: "Cinzel", "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", "Noto Serif CJK JP", serif;
+  /* 本文：ゴシック体 */
+  --font-body: "Inter", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
+}
+/* 英文页面页脚里那一行中文公司名（lang="zh"）、日文页里的中文公司名（lang="zh-CN"）也用中文字体 */
+.footer-company p:lang(zh) {
+  font-family: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", sans-serif;
+}
+
+/* —— 字母间距：英文大写字母拉宽很好看，但汉字 / 假名拉得太宽会显得松散 —— */
+:lang(zh) .eyebrow, :lang(ja) .eyebrow,
+:lang(zh) .section-no, :lang(ja) .section-no,
+:lang(zh) .btn, :lang(ja) .btn,
+:lang(zh) .text-link, :lang(ja) .text-link,
+:lang(zh) .main-nav a, :lang(ja) .main-nav a,
+:lang(zh) .photo-row figcaption, :lang(ja) .photo-row figcaption,
+:lang(zh) .craft-media figcaption, :lang(ja) .craft-media figcaption,
+:lang(zh) .city-photo figcaption, :lang(ja) .city-photo figcaption,
+:lang(zh) .stat-label, :lang(ja) .stat-label,
+:lang(zh) .brand-card dt, :lang(ja) .brand-card dt,
+:lang(zh) .contact-list dt, :lang(ja) .contact-list dt,
+:lang(zh) .footer-nav a, :lang(ja) .footer-nav a {
+  letter-spacing: 0.1em;
+  text-transform: none;
+}
+/* 口号带：中文字距可以稍宽一点，保持"庄重"的感觉 */
+:lang(zh) .tagline-band p, :lang(ja) .tagline-band p,
+:lang(zh) .footer-tagline, :lang(ja) .footer-tagline {
+  letter-spacing: 0.2em;
+  text-transform: none;
+}
+/* 中文、日文的小号文字稍微放大一点（汉字笔画多，12px 太小看不清） */
+:lang(zh) .section-no, :lang(ja) .section-no,
+:lang(zh) .eyebrow, :lang(ja) .eyebrow,
+:lang(zh) .main-nav a, :lang(ja) .main-nav a { font-size: 0.8125rem; }
+@media (max-width: 960px) {
+  :lang(zh) .main-nav a, :lang(ja) .main-nav a { font-size: 0.75rem; letter-spacing: 0.06em; }
+}
+
+/* —— 大标题：汉字比西文字母"重"，字号稍小、行距稍大 —— */
+:lang(zh) .hero-title, :lang(ja) .hero-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+:lang(zh) .section-title, :lang(ja) .section-title {
+  font-size: clamp(1.75rem, 3vw, 2.625rem);
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+}
+:lang(zh) .quote p, :lang(ja) .quote p { font-size: 1.375rem; line-height: 1.7; }
+:lang(zh) .steps h3, :lang(ja) .steps h3 { font-weight: 600; }
+/* 正文行距：中日文 1.85 读起来更舒服 */
+:lang(zh) body, :lang(ja) body { line-height: 1.85; }
+
+/* —— 日文换行：keep-all = 不在词语中间断行，只在 <wbr>、标点处换行；
+       overflow-wrap: anywhere = 万一一行放不下，允许强制断行，保证不撑破屏幕 —— */
+:lang(ja) .hero-title,
+:lang(ja) .section-title {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+/* 中文、日文的段落：标点不出现在行首（浏览器默认已处理，这里写严格模式更讲究） */
+:lang(zh) p, :lang(ja) p { line-break: strict; }

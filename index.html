@@ -23,6 +23,13 @@
   <!-- 搜索引擎结果里显示的简介（用的是现网站和资料表里的真实文案） -->
   <meta name="description" content="Angel Musical supplies rebuilt Japanese pianos to piano shops, dealers, and distributors in more than 10 countries. Trade only.">
 
+  <!-- 多语言版本声明（hreflang）：告诉搜索引擎这三个页面是同一内容的不同语言版本。
+       x-default = 默认版本（英文）。注意：angelmusical.com 域名还没绑定到新网站，绑定后即生效 -->
+  <link rel="alternate" hreflang="en" href="https://angelmusical.com/">
+  <link rel="alternate" hreflang="zh-CN" href="https://angelmusical.com/zh/">
+  <link rel="alternate" hreflang="ja" href="https://angelmusical.com/ja/">
+  <link rel="alternate" hreflang="x-default" href="https://angelmusical.com/">
+
   <!-- 网站小图标（浏览器标签页上的那个 A）。SVG 清晰，PNG 作为兼容备用 -->
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="images/favicon-32.png" sizes="32x32" type="image/png">
@@ -61,12 +68,12 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <!-- 语言切换（目前只是占位链接）
-           TODO：做好中文版、日文版页面后，把 href 改成 zh/index.html、ja/index.html -->
+      <!-- 语言切换：三个语言版本互相链接。
+           aria-current="page" 标记"当前所在的语言"，读屏软件会读出来，CSS 也用它把当前语言变成金色 -->
       <div class="lang-switch" aria-label="Language">
-        <a href="#" aria-current="true">EN</a>
-        <a href="#" lang="zh">中</a>
-        <a href="#" lang="ja">日</a>
+        <a href="index.html" lang="en" hreflang="en" aria-current="page">EN</a>
+        <a href="zh/index.html" lang="zh-CN" hreflang="zh-CN">中</a>
+        <a href="ja/index.html" lang="ja" hreflang="ja">日</a>
       </div>
 
     </div>
