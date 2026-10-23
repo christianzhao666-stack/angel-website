@@ -6,7 +6,9 @@ site/
 ├── index.html          ← 页面"内容和结构"（文字、图片、链接）
 ├── css/style.css       ← 页面"外观"（颜色、字体、间距、手机适配）
 ├── fonts/              ← 自托管字体（Cinzel 标题、Inter 正文，均为 SIL OFL 免费商用授权）
-├── images/             ← Logo、网站图标、已压缩的 WebP 照片
+├── images/             ← Logo、网站图标、已压缩的 WebP 照片（首屏、工序、厂区航拍均为公司自己拍摄）
+├── video/              ← 车间工艺短视频（已完全去除声音，WebM + MP4 两种格式，约 3MB）
+├── js/craft-video.js   ← 唯一的 JavaScript：滚动到视频附近才加载播放；尊重"减少动态效果"设置
 └── preview/            ← 截图预览（不属于网站本身，可删除）
 ```
 

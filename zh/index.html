@@ -142,7 +142,7 @@
 
           <!-- 引言：用细金线和衬线字体突出公司理念 -->
           <blockquote class="quote">
-            <p>在这一行，口碑来得比货慢，却留得比货久。</p>
+            <p>在这一行，口碑来得比利润慢，却留得比利润久。</p>
           </blockquote>
 
           <p>
@@ -196,19 +196,47 @@
           </p>
         </div>
 
-        <!-- 三张真实工艺照片。loading="lazy" = 滚动到附近才加载，省流量 -->
-        <div class="photo-row">
+        <!-- 2026-10-23 新增：车间短视频，对应下面的第 III、IV、V、VII 步。
+             2026-10-23 调整：整排移到工序标题下面（替换原来那排三张照片），第 III 步也已换成视频。
+             视频都是静音循环的小文件（每段 1 MB 以内），先只显示封面图，
+             滚动到附近才由 js/clips.js 加载；手机上自动换成更小的版本；
+             访客开启"减少动态效果"时只显示封面图，不播放。 -->
+        <div class="clip-row">
           <figure>
-            <img src="../images/process-action.webp" alt="翻新中的立式钢琴，击弦机与琴键外露" width="1000" height="750" loading="lazy">
-            <figcaption>击弦机部件</figcaption>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-case-poster.webp" width="480" height="600"
+                   aria-label="车间视频：技师修整三角钢琴琴壳，随后用偏心抛光机为立式钢琴琴壳抛光">
+              <source data-src="../video/clip-case.webm" data-src-mobile="../video/clip-case-m.webm" type="video/webm">
+              <source data-src="../video/clip-case.mp4" data-src-mobile="../video/clip-case-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">III</span>外观抛光</figcaption>
           </figure>
           <figure>
-            <img src="../images/process-voicing.webp" alt="技师正在为琴槌整音" width="1000" height="667" loading="lazy">
-            <figcaption>整音与调律</figcaption>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-keys-poster.webp" width="480" height="600"
+                   aria-label="车间视频：技师在抛光轮上为琴键抛光">
+              <source data-src="../video/clip-keys.webm" data-src-mobile="../video/clip-keys-m.webm" type="video/webm">
+              <source data-src="../video/clip-keys.mp4" data-src-mobile="../video/clip-keys-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">IV</span>抛光轮打磨琴键</figcaption>
           </figure>
           <figure>
-            <img src="../images/process-export.webp" alt="叉车将钢琴装入集装箱" width="1000" height="750" loading="lazy">
-            <figcaption>装箱出运</figcaption>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-action-poster.webp" width="480" height="600"
+                   aria-label="车间视频：技师手工安装击弦机小零件">
+              <source data-src="../video/clip-action.webm" data-src-mobile="../video/clip-action-m.webm" type="video/webm">
+              <source data-src="../video/clip-action.mp4" data-src-mobile="../video/clip-action-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">V</span>手工安装击弦机零件</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-regulation-poster.webp" width="480" height="600"
+                   aria-label="车间视频：技师调整立式钢琴的击弦机">
+              <source data-src="../video/clip-regulation.webm" data-src-mobile="../video/clip-regulation-m.webm" type="video/webm">
+              <source data-src="../video/clip-regulation.mp4" data-src-mobile="../video/clip-regulation-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">VII</span>击弦机调整</figcaption>
           </figure>
         </div>
 
@@ -247,44 +275,6 @@
             <p>逐个音进行调整，力求全音域音色均匀、平衡，最后细致调律。</p>
           </li>
         </ol>
-
-        <!-- 2026-10-23 新增：车间短视频 / 截图，对应上面的第 III、IV、V、VII 步。
-             视频都是静音循环的小文件（每段 1 MB 以内），先只显示封面图，
-             滚动到附近才由 js/clips.js 加载；手机上自动换成更小的版本；
-             访客开启"减少动态效果"时只显示封面图，不播放。 -->
-        <div class="clip-row">
-          <figure>
-            <img src="../images/clips/still-polishing.webp" alt="技师用偏心抛光机为黑色立式钢琴的琴壳抛光" width="480" height="600" loading="lazy" decoding="async">
-            <figcaption><span class="clip-no">III</span>琴壳抛光</figcaption>
-          </figure>
-          <figure>
-            <video class="clip-video" muted loop playsinline preload="none"
-                   poster="../images/clips/clip-keys-poster.webp" width="480" height="600"
-                   aria-label="车间视频：技师在抛光轮上为琴键抛光">
-              <source data-src="../video/clip-keys.webm" data-src-mobile="../video/clip-keys-m.webm" type="video/webm">
-              <source data-src="../video/clip-keys.mp4" data-src-mobile="../video/clip-keys-m.mp4" type="video/mp4">
-            </video>
-            <figcaption><span class="clip-no">IV</span>抛光轮打磨琴键</figcaption>
-          </figure>
-          <figure>
-            <video class="clip-video" muted loop playsinline preload="none"
-                   poster="../images/clips/clip-action-poster.webp" width="480" height="600"
-                   aria-label="车间视频：技师手工安装击弦机小零件">
-              <source data-src="../video/clip-action.webm" data-src-mobile="../video/clip-action-m.webm" type="video/webm">
-              <source data-src="../video/clip-action.mp4" data-src-mobile="../video/clip-action-m.mp4" type="video/mp4">
-            </video>
-            <figcaption><span class="clip-no">V</span>手工安装击弦机零件</figcaption>
-          </figure>
-          <figure>
-            <video class="clip-video" muted loop playsinline preload="none"
-                   poster="../images/clips/clip-regulation-poster.webp" width="480" height="600"
-                   aria-label="车间视频：技师调整立式钢琴的击弦机">
-              <source data-src="../video/clip-regulation.webm" data-src-mobile="../video/clip-regulation-m.webm" type="video/webm">
-              <source data-src="../video/clip-regulation.mp4" data-src-mobile="../video/clip-regulation-m.mp4" type="video/mp4">
-            </video>
-            <figcaption><span class="clip-no">VII</span>击弦机调整</figcaption>
-          </figure>
-        </div>
 
         <!-- 2026-10-23 新增：第 IX–X 步（终检、包装、装柜）单独一块：左边文字，右边 3 张包装/装柜照片。
              第二个 <ol> 加了 class="steps-tail"，CSS 里让它的编号从 IX 接着往下数 -->
@@ -330,6 +320,8 @@
 
     <!-- ===============================================================
          5b. 工艺视频带 Craft video（公司自己拍摄的车间视频，已去除全部声音）
+         2026-10-23 文案改为"车间视频实况"：强调这是室内车间现场拍的一段连续镜头，中间没有剪辑
+         （只截取了约 8 秒、去掉声音、统一了色调；不要写成"原片"）。
          左边文字、右边竖版视频。
          - muted：静音（浏览器只允许静音视频自动播放）
          - loop：循环播放
@@ -338,14 +330,14 @@
          - preload="none"：先不下载视频，等滚动到附近时由 js/craft-video.js 再加载（省流量）
          如果访客的系统设置了"减少动态效果"，视频不会自动播放，只显示封面和播放按钮。
          =============================================================== -->
-    <section class="section section-dark craft" aria-label="走进车间">
+    <section class="section section-dark craft" aria-label="车间视频">
       <div class="container craft-grid">
 
         <div class="craft-text">
-          <p class="section-no">走进车间</p>
-          <h2 class="section-title">这道工序，<br>关乎弹奏手感。</h2>
+          <p class="section-no">车间实拍</p>
+          <h2 class="section-title">车间视频实况</h2>
           <p class="section-intro">
-            在专用的室内车间里，技师更换磨损的击弦机零件，并逐台手工调整，使触键均匀、灵敏。
+            这段视频在我们的室内车间现场拍摄，是一段未经剪辑的连续镜头：打开的立式钢琴，和技师日常的工作。
           </p>
         </div>
 
@@ -357,9 +349,100 @@
             <source data-src="../video/craft-loop.webm" type="video/webm">
             <source data-src="../video/craft-loop.mp4" type="video/mp4">
           </video>
-          <figcaption>车间实拍 · Angel Musical</figcaption>
+          <figcaption>室内车间 · 未剪辑实拍 · Angel Musical</figcaption>
         </figure>
 
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         5b. 成品展示 Finished pianos（2026-10-23 新增：8 张雅马哈 U3H 成品照片）
+         - 照片由 site-src/make_showcase.py 生成：钢板序列号只保留前两位、背面标签编号已抹掉（隐私）
+         - 和下面的相册用同一套样式（.gallery-grid：电脑 4 列 × 2 行，手机 2 列）和同一个灯箱（js/gallery.js）
+         - 只有 class 里带 gallery-lb 的区块会被灯箱接管；每个区块各自翻页（这里是 1/8 … 8/8）
+         =============================================================== -->
+    <section class="section section-light showcase gallery-lb" id="showcase" aria-label="成品展示"
+             data-label-close="关闭" data-label-prev="上一张" data-label-next="下一张">
+      <div class="container">
+        <div class="section-head section-head-wide">
+          <p class="section-no">雅马哈 U3H</p>
+          <h2 class="section-title">成品展示</h2>
+          <p class="section-intro">翻新完成后拍摄的雅马哈 U3H 立式钢琴。</p>
+        </div>
+        <ul class="gallery-grid">
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-front-1600.webp">
+              <img src="../images/showcase/u3h-front-960.webp"
+                   srcset="../images/showcase/u3h-front-480.webp 480w, ../images/showcase/u3h-front-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="雅马哈 U3H 立式钢琴正面，顶盖关闭" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">雅马哈 U3H · 正面</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-open-1600.webp">
+              <img src="../images/showcase/u3h-open-960.webp"
+                   srcset="../images/showcase/u3h-open-480.webp 480w, ../images/showcase/u3h-open-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="打开顶盖和前板的雅马哈 U3H，可见击弦机" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">雅马哈 U3H · 打开顶盖</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-keyboard-1600.webp">
+              <img src="../images/showcase/u3h-keyboard-960.webp"
+                   srcset="../images/showcase/u3h-keyboard-480.webp 480w, ../images/showcase/u3h-keyboard-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="雅马哈 U3H 的键盘和琴键盖" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">雅马哈 U3H · 键盘</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-keys-1600.webp">
+              <img src="../images/showcase/u3h-keys-960.webp"
+                   srcset="../images/showcase/u3h-keys-480.webp 480w, ../images/showcase/u3h-keys-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="从低音端看雅马哈 U3H 的琴键" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">雅马哈 U3H · 琴键侧面</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-action-1600.webp">
+              <img src="../images/showcase/u3h-action-960.webp"
+                   srcset="../images/showcase/u3h-action-480.webp 480w, ../images/showcase/u3h-action-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="雅马哈 U3H 内部的琴槌、琴弦和弦轴" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">雅马哈 U3H · 击弦机</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-plate-1600.webp">
+              <img src="../images/showcase/u3h-plate-960.webp"
+                   srcset="../images/showcase/u3h-plate-480.webp 480w, ../images/showcase/u3h-plate-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="击弦机上方标有 U3 的钢板" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">雅马哈 U3H · 钢板与击弦机</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-plate-close-1600.webp">
+              <img src="../images/showcase/u3h-plate-close-960.webp"
+                   srcset="../images/showcase/u3h-plate-close-480.webp 480w, ../images/showcase/u3h-plate-close-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="U3 钢板近景" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">雅马哈 U3H · 钢板</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-back-1600.webp">
+              <img src="../images/showcase/u3h-back-960.webp"
+                   srcset="../images/showcase/u3h-back-480.webp 480w, ../images/showcase/u3h-back-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="从背面看雅马哈 U3H 的音板，可见音板肋木" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">雅马哈 U3H · 音板</p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -391,7 +474,7 @@
          - js/gallery.js 会把点击改成"在页面里弹出大图"（灯箱），可以左右切换、按 Esc 关闭。
          - data-label-* = 灯箱按钮的读屏文字，中日文版会被替换成对应语言
          =============================================================== -->
-    <section class="section section-light gallery" id="gallery" aria-label="厂区图集"
+    <section class="section section-light gallery gallery-lb" id="gallery" aria-label="厂区图集"
              data-label-close="关闭" data-label-prev="上一张" data-label-next="下一张">
       <div class="container">
         <div class="section-head section-head-wide">
@@ -415,7 +498,7 @@
                    sizes="(max-width: 960px) 50vw, 300px"
                    alt="办公楼与厂区院子航拍" width="960" height="640" loading="lazy" decoding="async">
             </a>
-            <p class="g-cap">办公楼与厂区</p>
+            <p class="g-cap">厂区航拍</p>
           </li>
           <li>
             <a class="g-item" href="../images/gallery/g-warehouse-uprights-1600.webp">
@@ -434,15 +517,6 @@
                    alt="仓库里排列整齐的包装纸箱" width="960" height="640" loading="lazy" decoding="async">
             </a>
             <p class="g-cap">已包装库存</p>
-          </li>
-          <li>
-            <a class="g-item" href="../images/gallery/g-workshop-1600.webp">
-              <img src="../images/gallery/g-workshop-960.webp"
-                   srcset="../images/gallery/g-workshop-480.webp 480w, ../images/gallery/g-workshop-960.webp 960w"
-                   sizes="(max-width: 960px) 50vw, 300px"
-                   alt="车间里正在处理琴壳的技师" width="960" height="640" loading="lazy" decoding="async">
-            </a>
-            <p class="g-cap">车间琴壳作业</p>
           </li>
           <li>
             <a class="g-item" href="../images/gallery/g-forklift-1600.webp">

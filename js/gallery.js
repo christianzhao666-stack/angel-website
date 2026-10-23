@@ -6,11 +6,15 @@
    这个脚本没加载 / 浏览器太旧时，点击就直接打开大图，功能不会坏。
    用到的 <dialog> 是浏览器自带的弹窗元素：showModal() 打开、close() 关闭，
    Esc 键关闭和"焦点锁在弹窗里"都由浏览器自动处理。
+   2026-10-23 修改：页面上有两个图集（成品展示 + 相册），凡是 class 里带 gallery-lb 的区块
+   都会各自得到一个灯箱，左右切换只在本区块的照片里循环。
    ===================================================================== */
 (function () {
-  var section = document.querySelector('.gallery');
-  if (!section || typeof HTMLDialogElement !== 'function') return;   // 不支持 <dialog> 就不接管点击
+  if (typeof HTMLDialogElement !== 'function') return;   // 不支持 <dialog> 就不接管点击
+  // 对每个图集区块调用一次 setup(区块)
+  Array.prototype.forEach.call(document.querySelectorAll('.gallery-lb'), setup);
 
+  function setup(section) {
   var links = Array.prototype.slice.call(section.querySelectorAll('a.g-item'));
   if (!links.length) return;
   var L = section.dataset;   // 按钮读屏文字（HTML 里的 data-label-*，中日文版已翻译）
@@ -54,4 +58,5 @@
   });
   dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });   // 点黑色背景关闭
   dlg.addEventListener('close', function () { links[cur].focus(); });                  // 关闭后焦点回到原来那张小图
+  }
 })();

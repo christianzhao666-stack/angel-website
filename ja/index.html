@@ -196,19 +196,47 @@
           </p>
         </div>
 
-        <!-- 三张真实工艺照片。loading="lazy" = 滚动到附近才加载，省流量 -->
-        <div class="photo-row">
+        <!-- 2026-10-23 新增：车间短视频，对应下面的第 III、IV、V、VII 步。
+             2026-10-23 调整：整排移到工序标题下面（替换原来那排三张照片），第 III 步也已换成视频。
+             视频都是静音循环的小文件（每段 1 MB 以内），先只显示封面图，
+             滚动到附近才由 js/clips.js 加载；手机上自动换成更小的版本；
+             访客开启"减少动态效果"时只显示封面图，不播放。 -->
+        <div class="clip-row">
           <figure>
-            <img src="../images/process-action.webp" alt="整備中のアップライトピアノ。アクションと鍵盤が見える状態" width="1000" height="750" loading="lazy">
-            <figcaption>アクション部品</figcaption>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-case-poster.webp" width="480" height="600"
+                   aria-label="工房の映像：グランドピアノの外装を手入れし、続いてアップライトピアノの外装をオービタルポリッシャーで磨く技術者">
+              <source data-src="../video/clip-case.webm" data-src-mobile="../video/clip-case-m.webm" type="video/webm">
+              <source data-src="../video/clip-case.mp4" data-src-mobile="../video/clip-case-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">III</span>外装の研磨</figcaption>
           </figure>
           <figure>
-            <img src="../images/process-voicing.webp" alt="ハンマーの整音を行う技術者" width="1000" height="667" loading="lazy">
-            <figcaption>整音・調律</figcaption>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-keys-poster.webp" width="480" height="600"
+                   aria-label="工房の映像：バフ機で鍵盤を磨く技術者">
+              <source data-src="../video/clip-keys.webm" data-src-mobile="../video/clip-keys-m.webm" type="video/webm">
+              <source data-src="../video/clip-keys.mp4" data-src-mobile="../video/clip-keys-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">IV</span>バフ機での鍵盤研磨</figcaption>
           </figure>
           <figure>
-            <img src="../images/process-export.webp" alt="フォークリフトでピアノをコンテナに積み込む様子" width="1000" height="750" loading="lazy">
-            <figcaption>コンテナ積み込み</figcaption>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-action-poster.webp" width="480" height="600"
+                   aria-label="工房の映像：アクションの小部品を手作業で取り付ける技術者">
+              <source data-src="../video/clip-action.webm" data-src-mobile="../video/clip-action-m.webm" type="video/webm">
+              <source data-src="../video/clip-action.mp4" data-src-mobile="../video/clip-action-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">V</span>アクション部品を手作業で取り付け</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-regulation-poster.webp" width="480" height="600"
+                   aria-label="工房の映像：アップライトピアノのアクションを調整する技術者">
+              <source data-src="../video/clip-regulation.webm" data-src-mobile="../video/clip-regulation-m.webm" type="video/webm">
+              <source data-src="../video/clip-regulation.mp4" data-src-mobile="../video/clip-regulation-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">VII</span>アクションの調整</figcaption>
           </figure>
         </div>
 
@@ -247,44 +275,6 @@
             <p>一音ずつ調整し、全音域で音色とバランスがそろうよう整えたうえで、丁寧に調律します。</p>
           </li>
         </ol>
-
-        <!-- 2026-10-23 新增：车间短视频 / 截图，对应上面的第 III、IV、V、VII 步。
-             视频都是静音循环的小文件（每段 1 MB 以内），先只显示封面图，
-             滚动到附近才由 js/clips.js 加载；手机上自动换成更小的版本；
-             访客开启"减少动态效果"时只显示封面图，不播放。 -->
-        <div class="clip-row">
-          <figure>
-            <img src="../images/clips/still-polishing.webp" alt="オービタルポリッシャーで黒いアップライトピアノの外装を磨く技術者" width="480" height="600" loading="lazy" decoding="async">
-            <figcaption><span class="clip-no">III</span>外装の研磨</figcaption>
-          </figure>
-          <figure>
-            <video class="clip-video" muted loop playsinline preload="none"
-                   poster="../images/clips/clip-keys-poster.webp" width="480" height="600"
-                   aria-label="工房の映像：バフ機で鍵盤を磨く技術者">
-              <source data-src="../video/clip-keys.webm" data-src-mobile="../video/clip-keys-m.webm" type="video/webm">
-              <source data-src="../video/clip-keys.mp4" data-src-mobile="../video/clip-keys-m.mp4" type="video/mp4">
-            </video>
-            <figcaption><span class="clip-no">IV</span>バフ機での鍵盤研磨</figcaption>
-          </figure>
-          <figure>
-            <video class="clip-video" muted loop playsinline preload="none"
-                   poster="../images/clips/clip-action-poster.webp" width="480" height="600"
-                   aria-label="工房の映像：アクションの小部品を手作業で取り付ける技術者">
-              <source data-src="../video/clip-action.webm" data-src-mobile="../video/clip-action-m.webm" type="video/webm">
-              <source data-src="../video/clip-action.mp4" data-src-mobile="../video/clip-action-m.mp4" type="video/mp4">
-            </video>
-            <figcaption><span class="clip-no">V</span>アクション部品を手作業で取り付け</figcaption>
-          </figure>
-          <figure>
-            <video class="clip-video" muted loop playsinline preload="none"
-                   poster="../images/clips/clip-regulation-poster.webp" width="480" height="600"
-                   aria-label="工房の映像：アップライトピアノのアクションを調整する技術者">
-              <source data-src="../video/clip-regulation.webm" data-src-mobile="../video/clip-regulation-m.webm" type="video/webm">
-              <source data-src="../video/clip-regulation.mp4" data-src-mobile="../video/clip-regulation-m.mp4" type="video/mp4">
-            </video>
-            <figcaption><span class="clip-no">VII</span>アクションの調整</figcaption>
-          </figure>
-        </div>
 
         <!-- 2026-10-23 新增：第 IX–X 步（终检、包装、装柜）单独一块：左边文字，右边 3 张包装/装柜照片。
              第二个 <ol> 加了 class="steps-tail"，CSS 里让它的编号从 IX 接着往下数 -->
@@ -330,6 +320,8 @@
 
     <!-- ===============================================================
          5b. 工艺视频带 Craft video（公司自己拍摄的车间视频，已去除全部声音）
+         2026-10-23 文案改为"车间视频实况"：强调这是室内车间现场拍的一段连续镜头，中间没有剪辑
+         （只截取了约 8 秒、去掉声音、统一了色调；不要写成"原片"）。
          左边文字、右边竖版视频。
          - muted：静音（浏览器只允许静音视频自动播放）
          - loop：循环播放
@@ -338,14 +330,14 @@
          - preload="none"：先不下载视频，等滚动到附近时由 js/craft-video.js 再加载（省流量）
          如果访客的系统设置了"减少动态效果"，视频不会自动播放，只显示封面和播放按钮。
          =============================================================== -->
-    <section class="section section-dark craft" aria-label="工房の様子">
+    <section class="section section-dark craft" aria-label="工房の映像">
       <div class="container craft-grid">
 
         <div class="craft-text">
-          <p class="section-no">工房の様子</p>
-          <h2 class="section-title">この工程が、<br>弾き心地を<wbr>左右します。</h2>
+          <p class="section-no">工房の現場から</p>
+          <h2 class="section-title">工房の映像を、<br>ありのままに。</h2>
           <p class="section-intro">
-            専用の屋内工房で、技術者が摩耗したアクション部品を交換し、一台ずつ手作業で調整して、むらのない反応の良いタッチに整えます。
+            屋内工房の現場で撮影した、編集を加えていない一続きの映像です。開いたアップライトピアノと、技術者の日々の作業をそのままご覧いただけます。
           </p>
         </div>
 
@@ -357,9 +349,100 @@
             <source data-src="../video/craft-loop.webm" type="video/webm">
             <source data-src="../video/craft-loop.mp4" type="video/mp4">
           </video>
-          <figcaption>工房の映像 · Angel Musical</figcaption>
+          <figcaption>屋内工房 · 無編集の映像 · Angel Musical</figcaption>
         </figure>
 
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         5b. 成品展示 Finished pianos（2026-10-23 新增：8 张雅马哈 U3H 成品照片）
+         - 照片由 site-src/make_showcase.py 生成：钢板序列号只保留前两位、背面标签编号已抹掉（隐私）
+         - 和下面的相册用同一套样式（.gallery-grid：电脑 4 列 × 2 行，手机 2 列）和同一个灯箱（js/gallery.js）
+         - 只有 class 里带 gallery-lb 的区块会被灯箱接管；每个区块各自翻页（这里是 1/8 … 8/8）
+         =============================================================== -->
+    <section class="section section-light showcase gallery-lb" id="showcase" aria-label="完成品のご紹介"
+             data-label-close="閉じる" data-label-prev="前の写真" data-label-next="次の写真">
+      <div class="container">
+        <div class="section-head section-head-wide">
+          <p class="section-no">ヤマハ U3H</p>
+          <h2 class="section-title">完成品のご紹介</h2>
+          <p class="section-intro">リビルドを終えたヤマハ U3H アップライトピアノです。</p>
+        </div>
+        <ul class="gallery-grid">
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-front-1600.webp">
+              <img src="../images/showcase/u3h-front-960.webp"
+                   srcset="../images/showcase/u3h-front-480.webp 480w, ../images/showcase/u3h-front-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="上蓋を閉じたヤマハ U3H アップライトピアノの正面" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">ヤマハ U3H · 正面</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-open-1600.webp">
+              <img src="../images/showcase/u3h-open-960.webp"
+                   srcset="../images/showcase/u3h-open-480.webp 480w, ../images/showcase/u3h-open-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="上蓋と前板を開けたヤマハ U3H。アクションが見える" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">ヤマハ U3H · 上蓋を開けて</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-keyboard-1600.webp">
+              <img src="../images/showcase/u3h-keyboard-960.webp"
+                   srcset="../images/showcase/u3h-keyboard-480.webp 480w, ../images/showcase/u3h-keyboard-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="ヤマハ U3H の鍵盤と鍵盤蓋" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">ヤマハ U3H · 鍵盤</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-keys-1600.webp">
+              <img src="../images/showcase/u3h-keys-960.webp"
+                   srcset="../images/showcase/u3h-keys-480.webp 480w, ../images/showcase/u3h-keys-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="低音側から見たヤマハ U3H の鍵盤" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">ヤマハ U3H · 鍵盤を横から</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-action-1600.webp">
+              <img src="../images/showcase/u3h-action-960.webp"
+                   srcset="../images/showcase/u3h-action-480.webp 480w, ../images/showcase/u3h-action-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="ヤマハ U3H 内部のハンマー、弦、チューニングピン" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">ヤマハ U3H · アクション</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-plate-1600.webp">
+              <img src="../images/showcase/u3h-plate-960.webp"
+                   srcset="../images/showcase/u3h-plate-480.webp 480w, ../images/showcase/u3h-plate-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="アクションの上にある U3 の刻印入りフレーム" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">ヤマハ U3H · フレームとアクション</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-plate-close-1600.webp">
+              <img src="../images/showcase/u3h-plate-close-960.webp"
+                   srcset="../images/showcase/u3h-plate-close-480.webp 480w, ../images/showcase/u3h-plate-close-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="U3 フレームの近景" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">ヤマハ U3H · フレーム</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/showcase/u3h-back-1600.webp">
+              <img src="../images/showcase/u3h-back-960.webp"
+                   srcset="../images/showcase/u3h-back-480.webp 480w, ../images/showcase/u3h-back-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="背面から見たヤマハ U3H の響板と響棒" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">ヤマハ U3H · 響板</p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -391,7 +474,7 @@
          - js/gallery.js 会把点击改成"在页面里弹出大图"（灯箱），可以左右切换、按 Esc 关闭。
          - data-label-* = 灯箱按钮的读屏文字，中日文版会被替换成对应语言
          =============================================================== -->
-    <section class="section section-light gallery" id="gallery" aria-label="写真ギャラリー"
+    <section class="section section-light gallery gallery-lb" id="gallery" aria-label="写真ギャラリー"
              data-label-close="閉じる" data-label-prev="前の写真" data-label-next="次の写真">
       <div class="container">
         <div class="section-head section-head-wide">
@@ -415,7 +498,7 @@
                    sizes="(max-width: 960px) 50vw, 300px"
                    alt="事務所棟と敷地の空撮" width="960" height="640" loading="lazy" decoding="async">
             </a>
-            <p class="g-cap">事務所棟と敷地</p>
+            <p class="g-cap">施設の空撮</p>
           </li>
           <li>
             <a class="g-item" href="../images/gallery/g-warehouse-uprights-1600.webp">
@@ -434,15 +517,6 @@
                    alt="倉庫に並ぶ梱包済みの段ボール" width="960" height="640" loading="lazy" decoding="async">
             </a>
             <p class="g-cap">梱包済みの在庫</p>
-          </li>
-          <li>
-            <a class="g-item" href="../images/gallery/g-workshop-1600.webp">
-              <img src="../images/gallery/g-workshop-960.webp"
-                   srcset="../images/gallery/g-workshop-480.webp 480w, ../images/gallery/g-workshop-960.webp 960w"
-                   sizes="(max-width: 960px) 50vw, 300px"
-                   alt="工房でピアノの外装を手入れする技術者" width="960" height="640" loading="lazy" decoding="async">
-            </a>
-            <p class="g-cap">工房での外装作業</p>
           </li>
           <li>
             <a class="g-item" href="../images/gallery/g-forklift-1600.webp">
