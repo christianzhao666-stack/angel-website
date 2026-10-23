@@ -317,6 +317,27 @@ a:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
   background: var(--gold);
 }
 
+/* 首屏推广语（2026-10-23 新增）：在小标题正下方。
+   负的上边距 = 让它和小标题靠得更近，像一组；左边留出金线的宽度，和小标题文字对齐 */
+.eyebrow + .hero-promo { margin-top: -18px; }
+.hero-promo {
+  margin-bottom: 32px;
+  padding-left: 66px;          /* 48px 金线 + 18px 间距 */
+  max-width: 720px;           /* 宽一点：英文推广语在电脑上一行放得下，不会剩一个词孤零零换行 */
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  color: rgba(244, 241, 234, 0.9);
+  text-wrap: balance;          /* 两行长度尽量平均，避免最后一行只剩一两个字 */
+}
+
+/* 关于我们的英文标题比较长，字号小一点，免得一行只放得下一个词 */
+:lang(en) #about .section-title { font-size: clamp(1.75rem, 2.5vw, 2.25rem); }
+/* 日文标题第二行“中古の日本製ピアノを”要一行放下，字号也稍微小一点 */
+:lang(ja) #about .section-title { font-size: clamp(1.75rem, 2.6vw, 2.375rem); }
+
+/* .nw = no wrap：标题里一组词不从中间断开（中文/日文首屏标题用，手机上只在圆点后换行） */
+.nw { white-space: nowrap; }
 .hero-title {
   font-family: var(--font-display);
   font-weight: 500;
@@ -345,11 +366,11 @@ a:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
 }
 .tagline-band p {
   font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-size: 1.0625rem;        /* 2026-10-23：原来 0.875rem，放大约 21% */
   font-weight: 500;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-light);    /* 口号改用钛金色（和 Logo、当前导航同一种金），不再用红色 */
 }
 .tagline-band span { margin: 0 0.6em; color: var(--gold-deep); }
 
@@ -643,10 +664,10 @@ a:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
 .footer-tagline {
   margin-top: 20px;
   font-family: var(--font-display);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;        /* 2026-10-23：原来 0.6875rem，放大约 18% */
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-light);    /* 页脚口号也用钛金色 */
   opacity: .8;
   max-width: 360px;
   line-height: 2;
@@ -924,11 +945,13 @@ a:focus-visible { outline: 1px solid var(--gold); outline-offset: 4px; }
   }
   .eyebrow { align-items: flex-start; gap: 14px; }
   .eyebrow::before { width: 24px; margin-top: 0.7em; flex-shrink: 0; }
+  .hero-promo { padding-left: 38px; font-size: 0.9375rem; margin-bottom: 28px; }   /* 手机：24px 金线 + 14px 间距 */
+  .eyebrow + .hero-promo { margin-top: -16px; }
   .hero-lead { font-size: 1rem; margin: 24px 0 36px; }
   .button-row .btn { flex: 1 1 100%; text-align: center; }   /* 按钮占满一行，好点 */
 
   .tagline-band { padding: 26px 0; }
-  .tagline-band p { font-size: 0.75rem; letter-spacing: 0.22em; line-height: 2.2; }
+  .tagline-band p { font-size: 0.9375rem; letter-spacing: 0.22em; line-height: 2.2; }   /* 手机：原 0.75rem，放大 25% */
   .tagline-band span { display: block; height: 0; overflow: hidden; }  /* 手机上口号分三行，隐藏圆点 */
 
   .wide-photo { margin-top: 64px; }
