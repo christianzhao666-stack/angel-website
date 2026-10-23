@@ -55,9 +55,11 @@
   <header class="site-header">
     <div class="container header-inner">
 
-      <!-- Logo：点击回到首页。页头和页脚用的是同一个文件，保证全站统一 -->
+      <!-- Logo：点击回到首页。页头和页脚用的是同一个文件，保证全站统一
+           （2026-10-23 换成 Option A 几何钛金字标；文字已转成轮廓路径，任何电脑上显示都一样。
+            width/height 按 Option A 的比例 1770:348 写成 153×30，防止加载时页面跳动） -->
       <a class="brand" href="index.html" aria-label="Angel Musical — home">
-        <img src="images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30">
+        <img src="images/logo-angel-gold.svg" alt="ANGEL" width="153" height="30">
       </a>
 
       <!-- 主导航：# 开头的链接会跳到本页对应的区块 -->
@@ -103,7 +105,7 @@
         <!-- 两个按钮：都跳到页面底部的联系区 -->
         <div class="button-row">
           <a class="btn btn-gold" href="#contact">Request Stock List</a>
-          <a class="btn btn-ghost" href="#contact">Become a Partner</a>
+          <a class="btn btn-ghost" href="#contact">Work With Us</a>
         </div>
       </div>
     </section>
@@ -159,22 +161,42 @@
           <img src="images/about-facility.webp" alt="Aerial view of the Angel Musical facility in Yingkou" width="1600" height="686" loading="lazy">
           <figcaption>Our facility, Yingkou</figcaption>
         </figure>
+
+        <!-- 2026-10-23 新增：两张并排小图（办公楼正面 + 仓库）。
+             srcset = 同一张图的两个尺寸，sizes = 告诉浏览器图片大约显示多宽，浏览器自己挑最合适的那张 -->
+        <div class="photo-pair">
+          <figure>
+            <img src="images/gallery/about-front-960.webp"
+                 srcset="images/gallery/about-front-480.webp 480w, images/gallery/about-front-960.webp 960w"
+                 sizes="(max-width: 960px) 100vw, 580px"
+                 alt="Front of the Angel Musical office building" width="960" height="640" loading="lazy" decoding="async">
+            <figcaption>Office building</figcaption>
+          </figure>
+          <figure>
+            <img src="images/gallery/about-warehouse-960.webp"
+                 srcset="images/gallery/about-warehouse-480.webp 480w, images/gallery/about-warehouse-960.webp 960w"
+                 sizes="(max-width: 960px) 100vw, 580px"
+                 alt="Warehouse aisle lined with packed cartons" width="960" height="640" loading="lazy" decoding="async">
+            <figcaption>Warehouse</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <!-- ===============================================================
          5. 十道工序 The 10-step process（文案来自现网站 Services 页）
          上面 3 张工艺照片，下面是编号列表 <ol>
+         2026-10-23：文案改为克制、真实的说法（不写无法保证的精度数字，如“0.01 mm 公差”，也不用“每一台/完美/镜面”等绝对化用语）
          =============================================================== -->
     <section class="section section-light section-border" id="process">
       <div class="container">
 
         <div class="section-head section-head-wide">
           <p class="section-no">02 — Process</p>
-          <h2 class="section-title">Ten steps. Every piano.</h2>
+          <h2 class="section-title">Ten steps, from arrival to export.</h2>
           <p class="section-intro">
-            From incoming inspection to container loading — quality checks at every stage,
-            and only approved instruments proceed to shipping.
+            From incoming inspection to container loading, we check quality along the way,
+            and pianos are shipped only after passing a final inspection.
           </p>
         </div>
 
@@ -198,45 +220,114 @@
         <ol class="steps">
           <li>
             <h3>Incoming inspection</h3>
-            <p>Pianos arrive at our central warehouse. Every instrument undergoes professional assessment; only pianos suitable for reconditioning to near-new condition enter the workshop.</p>
+            <p>Pianos arrive at our central warehouse, where each one is assessed; only pianos we judge suitable for reconditioning enter the workshop.</p>
           </li>
           <li>
             <h3>Deep cleaning</h3>
             <p>Interior and exterior surfaces are thoroughly cleaned to remove years of dust, stains, and residue.</p>
           </li>
           <li>
-            <h3>Case refinishing &amp; mirror polishing</h3>
-            <p>Fine sanding and polishing achieve a mirror finish, removing scratches and blemishes.</p>
+            <h3>Case refinishing &amp; polishing</h3>
+            <p>Cases are carefully sanded and polished to reduce scratches and blemishes and bring back a high-gloss finish.</p>
           </li>
           <li>
             <h3>Keytop polishing &amp; replacement</h3>
-            <p>Keytops are polished to an ivory-smooth feel; cracked or damaged surfaces are replaced with matched materials.</p>
+            <p>Keytops are polished for a smooth feel; cracked or damaged keytops are replaced with closely matched materials.</p>
           </li>
           <li>
             <h3>Action component replacement</h3>
-            <p>Technicians replace and adjust internal action components — every part must meet 0.01&nbsp;mm tolerances.</p>
+            <p>Technicians replace worn action parts as needed and adjust each action by hand.</p>
           </li>
           <li>
             <h3>Complete piano rebuild</h3>
-            <p>For clients requiring a full upgrade, strings, hammers, and other core components are rebuilt and precisely adjusted.</p>
+            <p>For clients requiring a full upgrade, strings, hammers, and other core components are rebuilt and carefully adjusted.</p>
           </li>
           <li>
             <h3>Action regulation &amp; keybed setup</h3>
-            <p>Key weight, height, and dip are measured and regulated to factory specification.</p>
+            <p>Key weight, height, and dip are measured and regulated with reference to the manufacturer&rsquo;s specifications.</p>
           </li>
           <li>
             <h3>Regulation, voicing &amp; tuning</h3>
-            <p>Note by note, for even tone colour and balance across the full range, followed by precision tuning.</p>
-          </li>
-          <li>
-            <h3>Pre-shipment final inspection</h3>
-            <p>All components are verified. Any defect requires rework; only approved instruments proceed to shipping.</p>
-          </li>
-          <li>
-            <h3>Container loading &amp; export</h3>
-            <p>Refurbished pianos are professionally packed into ocean containers and shipped from the Port of Dalian to partners worldwide.</p>
+            <p>Note by note, working towards even tone colour and balance across the range, followed by careful tuning.</p>
           </li>
         </ol>
+
+        <!-- 2026-10-23 新增：车间短视频 / 截图，对应上面的第 III、IV、V、VII 步。
+             视频都是静音循环的小文件（每段 1 MB 以内），先只显示封面图，
+             滚动到附近才由 js/clips.js 加载；手机上自动换成更小的版本；
+             访客开启"减少动态效果"时只显示封面图，不播放。 -->
+        <div class="clip-row">
+          <figure>
+            <img src="images/clips/still-polishing.webp" alt="Technician polishing the case of a black upright piano with an orbital polisher" width="480" height="600" loading="lazy" decoding="async">
+            <figcaption><span class="clip-no">III</span>Polishing a case</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="images/clips/clip-keys-poster.webp" width="480" height="600"
+                   aria-label="Workshop footage: a technician working on piano keys at a buffing wheel">
+              <source data-src="video/clip-keys.webm" data-src-mobile="video/clip-keys-m.webm" type="video/webm">
+              <source data-src="video/clip-keys.mp4" data-src-mobile="video/clip-keys-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">IV</span>Keys at the buffing wheel</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="images/clips/clip-action-poster.webp" width="480" height="600"
+                   aria-label="Workshop footage: a technician fitting small action parts by hand">
+              <source data-src="video/clip-action.webm" data-src-mobile="video/clip-action-m.webm" type="video/webm">
+              <source data-src="video/clip-action.mp4" data-src-mobile="video/clip-action-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">V</span>Fitting action parts by hand</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="images/clips/clip-regulation-poster.webp" width="480" height="600"
+                   aria-label="Workshop footage: a technician regulating an upright piano action">
+              <source data-src="video/clip-regulation.webm" data-src-mobile="video/clip-regulation-m.webm" type="video/webm">
+              <source data-src="video/clip-regulation.mp4" data-src-mobile="video/clip-regulation-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">VII</span>Regulating the action</figcaption>
+          </figure>
+        </div>
+
+        <!-- 2026-10-23 新增：第 IX–X 步（终检、包装、装柜）单独一块：左边文字，右边 3 张包装/装柜照片。
+             第二个 <ol> 加了 class="steps-tail"，CSS 里让它的编号从 IX 接着往下数 -->
+        <div class="pack-block">
+          <ol class="steps steps-tail">
+            <li>
+              <h3>Pre-shipment final inspection</h3>
+              <p>Each piano is checked before shipment. Issues we find are reworked, and only pianos that pass are approved for shipping.</p>
+            </li>
+            <li>
+              <h3>Container loading &amp; export</h3>
+              <p>Refurbished pianos are professionally packed into ocean containers and shipped from the Port of Dalian to partners worldwide.</p>
+            </li>
+          </ol>
+
+          <div class="pack-photos">
+            <figure class="pack-main">
+              <img src="images/gallery/pack-strapping-800.webp"
+                   srcset="images/gallery/pack-strapping-480.webp 480w, images/gallery/pack-strapping-800.webp 800w"
+                   sizes="(max-width: 960px) 100vw, 440px"
+                   alt="Two Angel Musical staff strapping a cardboard piano crate on a pallet" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>Strapping a crate</figcaption>
+            </figure>
+            <figure>
+              <img src="images/gallery/pack-container-800.webp"
+                   srcset="images/gallery/pack-container-480.webp 480w, images/gallery/pack-container-800.webp 800w"
+                   sizes="(max-width: 960px) 50vw, 220px"
+                   alt="Packed pianos stacked inside a shipping container" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>Inside the container</figcaption>
+            </figure>
+            <figure>
+              <img src="images/gallery/pack-truck-800.webp"
+                   srcset="images/gallery/pack-truck-480.webp 480w, images/gallery/pack-truck-800.webp 800w"
+                   sizes="(max-width: 960px) 50vw, 220px"
+                   alt="Loaded container on a truck, doors open" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>Loaded for the port</figcaption>
+            </figure>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -256,11 +347,10 @@
 
         <div class="craft-text">
           <p class="section-no">Inside the workshop</p>
-          <h2 class="section-title">This stage defines<br>playing performance.</h2>
+          <h2 class="section-title">This stage shapes<br>how a piano plays.</h2>
           <p class="section-intro">
-            In a dedicated indoor workspace, technicians replace and adjust internal action
-            components — every part must meet 0.01&nbsp;mm tolerances for a responsive,
-            comfortable touch.
+            In a dedicated indoor workspace, our technicians replace worn action parts
+            and regulate each action by hand for an even, responsive touch.
           </p>
         </div>
 
@@ -295,6 +385,96 @@
           <li>
             <span class="stat-value">50+</span>
             <span class="stat-label">Team members</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         6b. 相册 Gallery（2026-10-23 新增：厂区、仓库、车间、装柜的实拍照片）
+         - 每张小图都是一个链接，指向大图（1600 宽）。没有 JavaScript 时点击 = 直接打开大图。
+         - js/gallery.js 会把点击改成"在页面里弹出大图"（灯箱），可以左右切换、按 Esc 关闭。
+         - data-label-* = 灯箱按钮的读屏文字，中日文版会被替换成对应语言
+         =============================================================== -->
+    <section class="section section-light gallery" id="gallery" aria-label="Photo gallery"
+             data-label-close="Close" data-label-prev="Previous photo" data-label-next="Next photo">
+      <div class="container">
+        <div class="section-head section-head-wide">
+          <p class="section-no">At the facility</p>
+          <h2 class="section-title">Warehouse, workshop<br>and loading yard.</h2>
+        </div>
+        <ul class="gallery-grid">
+          <li>
+            <a class="g-item" href="images/gallery/g-aerial-lake-1600.webp">
+              <img src="images/gallery/g-aerial-lake-960.webp"
+                   srcset="images/gallery/g-aerial-lake-480.webp 480w, images/gallery/g-aerial-lake-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="Aerial view of the factory buildings beside a pond" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">Facility from the air</p>
+          </li>
+          <li>
+            <a class="g-item" href="images/gallery/g-aerial-site-1600.webp">
+              <img src="images/gallery/g-aerial-site-960.webp"
+                   srcset="images/gallery/g-aerial-site-480.webp 480w, images/gallery/g-aerial-site-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="Aerial view of the office building and yard" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">Office &amp; yard</p>
+          </li>
+          <li>
+            <a class="g-item" href="images/gallery/g-warehouse-uprights-1600.webp">
+              <img src="images/gallery/g-warehouse-uprights-960.webp"
+                   srcset="images/gallery/g-warehouse-uprights-480.webp 480w, images/gallery/g-warehouse-uprights-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="Rows of upright pianos in the warehouse" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">Upright pianos in the warehouse</p>
+          </li>
+          <li>
+            <a class="g-item" href="images/gallery/g-warehouse-cartons-1600.webp">
+              <img src="images/gallery/g-warehouse-cartons-960.webp"
+                   srcset="images/gallery/g-warehouse-cartons-480.webp 480w, images/gallery/g-warehouse-cartons-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="Packed cartons lined up in the warehouse" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">Packed stock</p>
+          </li>
+          <li>
+            <a class="g-item" href="images/gallery/g-workshop-1600.webp">
+              <img src="images/gallery/g-workshop-960.webp"
+                   srcset="images/gallery/g-workshop-480.webp 480w, images/gallery/g-workshop-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="Technician working on a piano case in the workshop" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">Case work in the workshop</p>
+          </li>
+          <li>
+            <a class="g-item" href="images/gallery/g-forklift-1600.webp">
+              <img src="images/gallery/g-forklift-960.webp"
+                   srcset="images/gallery/g-forklift-480.webp 480w, images/gallery/g-forklift-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="Forklift loading a blue shipping container on a truck" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">Loading a container</p>
+          </li>
+          <li>
+            <a class="g-item" href="images/gallery/g-container-loaded-1600.webp">
+              <img src="images/gallery/g-container-loaded-960.webp"
+                   srcset="images/gallery/g-container-loaded-480.webp 480w, images/gallery/g-container-loaded-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="Packed pianos inside a shipping container, a worker beside them" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">Container being loaded</p>
+          </li>
+          <li>
+            <a class="g-item" href="images/gallery/g-container-truck-1600.webp">
+              <img src="images/gallery/g-container-truck-960.webp"
+                   srcset="images/gallery/g-container-truck-480.webp 480w, images/gallery/g-container-truck-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="Closed shipping container on a truck at the gate" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">Ready to leave</p>
           </li>
         </ul>
       </div>
@@ -436,7 +616,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30" loading="lazy">
+        <img src="images/logo-angel-gold.svg" alt="ANGEL" width="153" height="30" loading="lazy">
         <p class="footer-tagline">Masterful Restoration · Lasting Value · Connecting the World</p>
       </div>
 
@@ -465,5 +645,8 @@
   <!-- 唯一的一段 JavaScript：只负责"滚动到视频附近时再加载并播放"。
        defer = 等页面内容加载完再运行，不拖慢首屏 -->
   <script src="js/craft-video.js" defer></script>
+  <script src="js/header.js" defer></script>  <!-- 首页页头半透明（2026-10-23） -->
+  <script src="js/gallery.js" defer></script>  <!-- 相册灯箱（2026-10-23） -->
+  <script src="js/clips.js" defer></script>    <!-- 车间短视频懒加载（2026-10-23） -->
 </body>
 </html>

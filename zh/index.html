@@ -21,9 +21,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- 浏览器标签页标题 + 搜索引擎显示的标题 -->
-  <title>Angel Musical 安琦乐器 — 日本翻新钢琴 · 同业批发供应</title>
+  <title>Angel Musical 安琦乐器 — 日本翻新钢琴 · 面向同业供货</title>
   <!-- 搜索引擎结果里显示的简介（用的是现网站和资料表里的真实文案） -->
-  <meta name="description" content="Angel Musical（安琦乐器）向 10 多个国家的琴行、经销商和分销商供应日本翻新钢琴。仅面向同业。">
+  <meta name="description" content="Angel Musical（安琦乐器）向 10 多个国家的琴行、经销商和代理商供应日本翻新钢琴。只做同业批发，不做零售。">
 
   <!-- 多语言版本声明（hreflang）：告诉搜索引擎这三个页面是同一内容的不同语言版本。
        x-default = 默认版本（英文）。注意：angelmusical.com 域名还没绑定到新网站，绑定后即生效 -->
@@ -57,9 +57,11 @@
   <header class="site-header">
     <div class="container header-inner">
 
-      <!-- Logo：点击回到首页。页头和页脚用的是同一个文件，保证全站统一 -->
+      <!-- Logo：点击回到首页。页头和页脚用的是同一个文件，保证全站统一
+           （2026-10-23 换成 Option A 几何钛金字标；文字已转成轮廓路径，任何电脑上显示都一样。
+            width/height 按 Option A 的比例 1770:348 写成 153×30，防止加载时页面跳动） -->
       <a class="brand" href="index.html" aria-label="Angel Musical — 首页">
-        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30">
+        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="153" height="30">
       </a>
 
       <!-- 主导航：# 开头的链接会跳到本页对应的区块 -->
@@ -98,13 +100,13 @@
 
         <!-- 副标题（现网站 About 页文案） -->
         <p class="hero-lead">
-          Angel Musical 向 10 多个国家的琴行、经销商和分销商供应日本翻新钢琴。
+          Angel Musical 为 10 多个国家的琴行、经销商和代理商供应日本翻新钢琴。
         </p>
 
         <!-- 两个按钮：都跳到页面底部的联系区 -->
         <div class="button-row">
           <a class="btn btn-gold" href="#contact">索取库存清单</a>
-          <a class="btn btn-ghost" href="#contact">成为合作伙伴</a>
+          <a class="btn btn-ghost" href="#contact">与我们合作</a>
         </div>
       </div>
     </section>
@@ -132,10 +134,10 @@
 
         <div class="prose">
           <p>
-            安琦乐器（辽宁）有限公司于 2020 年在营口综合保税区开展业务，专注于进口二手钢琴的保税物流。
+            安琦乐器（辽宁）有限公司 2020 年起在营口综合保税区运营，专注于进口二手钢琴的保税物流。
           </p>
           <p>
-            采购、整备到出口物流，均由我们负责，您只需专注于销售。我们建立的每一段合作，都着眼长远。
+            从采购、整备到出口物流，均由我们负责，您可以专心做销售。我们建立的每一段合作，都着眼长远。
           </p>
 
           <!-- 引言：用细金线和衬线字体突出公司理念 -->
@@ -144,7 +146,7 @@
           </blockquote>
 
           <p>
-            比起追逐一时的成交，我们更愿意一批货、一批货地赢得信任。货量有起有落，合作关系不该如此。
+            与其追求一时的成交，我们更愿意用每一批货慢慢赢得信任。货量有起有落，合作关系却应长久稳定。
           </p>
         </div>
 
@@ -156,29 +158,49 @@
           <img src="../images/about-facility.webp" alt="Angel Musical 营口厂区航拍" width="1600" height="686" loading="lazy">
           <figcaption>我们的厂区 · 营口</figcaption>
         </figure>
+
+        <!-- 2026-10-23 新增：两张并排小图（办公楼正面 + 仓库）。
+             srcset = 同一张图的两个尺寸，sizes = 告诉浏览器图片大约显示多宽，浏览器自己挑最合适的那张 -->
+        <div class="photo-pair">
+          <figure>
+            <img src="../images/gallery/about-front-960.webp"
+                 srcset="../images/gallery/about-front-480.webp 480w, ../images/gallery/about-front-960.webp 960w"
+                 sizes="(max-width: 960px) 100vw, 580px"
+                 alt="Angel Musical 办公楼正面" width="960" height="640" loading="lazy" decoding="async">
+            <figcaption>办公楼</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/gallery/about-warehouse-960.webp"
+                 srcset="../images/gallery/about-warehouse-480.webp 480w, ../images/gallery/about-warehouse-960.webp 960w"
+                 sizes="(max-width: 960px) 100vw, 580px"
+                 alt="仓库通道两侧整齐摆放的包装纸箱" width="960" height="640" loading="lazy" decoding="async">
+            <figcaption>仓库</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <!-- ===============================================================
          5. 十道工序 The 10-step process（文案来自现网站 Services 页）
          上面 3 张工艺照片，下面是编号列表 <ol>
+         2026-10-23：文案改为克制、真实的说法（不写无法保证的精度数字，如“0.01 mm 公差”，也不用“每一台/完美/镜面”等绝对化用语）
          =============================================================== -->
     <section class="section section-light section-border" id="process">
       <div class="container">
 
         <div class="section-head section-head-wide">
           <p class="section-no">02 — 工序</p>
-          <h2 class="section-title">十道工序，台台如此。</h2>
+          <h2 class="section-title">十道工序，<br>从入库到出口。</h2>
           <p class="section-intro">
-            从入库检验到装箱出运，每个环节都设有质检，只有合格的钢琴才会进入发运。
+            从入库检验到装柜出运，每个环节都有质量检查；钢琴须通过终检方可发运。
           </p>
         </div>
 
         <!-- 三张真实工艺照片。loading="lazy" = 滚动到附近才加载，省流量 -->
         <div class="photo-row">
           <figure>
-            <img src="../images/process-action.webp" alt="翻新中的立式钢琴，机芯与琴键外露" width="1000" height="750" loading="lazy">
-            <figcaption>机芯部件</figcaption>
+            <img src="../images/process-action.webp" alt="翻新中的立式钢琴，击弦机与琴键外露" width="1000" height="750" loading="lazy">
+            <figcaption>击弦机部件</figcaption>
           </figure>
           <figure>
             <img src="../images/process-voicing.webp" alt="技师正在为琴槌整音" width="1000" height="667" loading="lazy">
@@ -194,45 +216,114 @@
         <ol class="steps">
           <li>
             <h3>入库检验</h3>
-            <p>钢琴运抵中央仓库后，每一台都要经过专业评估；只有能够翻新至接近全新状态的钢琴，才会进入车间。</p>
+            <p>钢琴运抵中央仓库后逐台评估，只有我们认为适合翻新的钢琴才会进入车间。</p>
           </li>
           <li>
             <h3>深度清洁</h3>
-            <p>对内部与外部进行彻底清洁，去除多年积累的灰尘、污渍和残留物。</p>
+            <p>对琴体内外进行彻底清洁，去除多年积存的灰尘、污渍和残留物。</p>
           </li>
           <li>
-            <h3>外壳翻新与镜面抛光</h3>
-            <p>经精细打磨与抛光，去除划痕和瑕疵，呈现镜面效果。</p>
+            <h3>琴壳翻新与抛光</h3>
+            <p>琴壳经细致打磨、抛光，淡化划痕与瑕疵，恢复高光漆面。</p>
           </li>
           <li>
             <h3>键面抛光与更换</h3>
-            <p>键面抛光至象牙般顺滑的手感；开裂或损坏的键面，以相匹配的材料更换。</p>
+            <p>键面经抛光后手感顺滑；开裂或破损的键面，选用相近的材料更换。</p>
           </li>
           <li>
-            <h3>机芯部件更换</h3>
-            <p>技师更换并调整内部机芯部件，每个零件都必须达到 0.01&nbsp;mm 的公差要求。</p>
+            <h3>击弦机零件更换</h3>
+            <p>技师按需更换磨损的击弦机零件，并逐台手工调整击弦机。</p>
           </li>
           <li>
             <h3>整琴大修</h3>
-            <p>对于需要全面升级的客户，我们重建琴弦、琴槌等核心部件，并进行精确调整。</p>
+            <p>如客户需要全面升级，我们可翻新琴弦、琴槌等核心部件，并进行细致调整。</p>
           </li>
           <li>
-            <h3>机芯调整与键床调校</h3>
-            <p>按出厂规格测量并调整键重、键高与键深。</p>
+            <h3>击弦机与键盘调校</h3>
+            <p>参照原厂规格，测量并调整键重、键高与触键深度。</p>
           </li>
           <li>
             <h3>整调、整音与调律</h3>
-            <p>逐音调整，使全音域音色均匀、平衡，随后进行精准调律。</p>
-          </li>
-          <li>
-            <h3>出货前终检</h3>
-            <p>逐一核验所有部件。发现任何缺陷即须返工；只有合格的钢琴才会进入发运。</p>
-          </li>
-          <li>
-            <h3>装箱与出口</h3>
-            <p>翻新完成的钢琴经专业包装装入海运集装箱，从大连港发往世界各地的合作伙伴。</p>
+            <p>逐个音进行调整，力求全音域音色均匀、平衡，最后细致调律。</p>
           </li>
         </ol>
+
+        <!-- 2026-10-23 新增：车间短视频 / 截图，对应上面的第 III、IV、V、VII 步。
+             视频都是静音循环的小文件（每段 1 MB 以内），先只显示封面图，
+             滚动到附近才由 js/clips.js 加载；手机上自动换成更小的版本；
+             访客开启"减少动态效果"时只显示封面图，不播放。 -->
+        <div class="clip-row">
+          <figure>
+            <img src="../images/clips/still-polishing.webp" alt="技师用偏心抛光机为黑色立式钢琴的琴壳抛光" width="480" height="600" loading="lazy" decoding="async">
+            <figcaption><span class="clip-no">III</span>琴壳抛光</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-keys-poster.webp" width="480" height="600"
+                   aria-label="车间视频：技师在抛光轮上为琴键抛光">
+              <source data-src="../video/clip-keys.webm" data-src-mobile="../video/clip-keys-m.webm" type="video/webm">
+              <source data-src="../video/clip-keys.mp4" data-src-mobile="../video/clip-keys-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">IV</span>抛光轮打磨琴键</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-action-poster.webp" width="480" height="600"
+                   aria-label="车间视频：技师手工安装击弦机小零件">
+              <source data-src="../video/clip-action.webm" data-src-mobile="../video/clip-action-m.webm" type="video/webm">
+              <source data-src="../video/clip-action.mp4" data-src-mobile="../video/clip-action-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">V</span>手工安装击弦机零件</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-regulation-poster.webp" width="480" height="600"
+                   aria-label="车间视频：技师调整立式钢琴的击弦机">
+              <source data-src="../video/clip-regulation.webm" data-src-mobile="../video/clip-regulation-m.webm" type="video/webm">
+              <source data-src="../video/clip-regulation.mp4" data-src-mobile="../video/clip-regulation-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">VII</span>击弦机调整</figcaption>
+          </figure>
+        </div>
+
+        <!-- 2026-10-23 新增：第 IX–X 步（终检、包装、装柜）单独一块：左边文字，右边 3 张包装/装柜照片。
+             第二个 <ol> 加了 class="steps-tail"，CSS 里让它的编号从 IX 接着往下数 -->
+        <div class="pack-block">
+          <ol class="steps steps-tail">
+            <li>
+              <h3>出货前终检</h3>
+              <p>每台钢琴出货前都要检查；发现问题即返工，合格后方可发运。</p>
+            </li>
+            <li>
+              <h3>装箱与出口</h3>
+              <p>翻新后的钢琴经专业包装后装入海运集装箱，从大连港发往世界各地的合作伙伴。</p>
+            </li>
+          </ol>
+
+          <div class="pack-photos">
+            <figure class="pack-main">
+              <img src="../images/gallery/pack-strapping-800.webp"
+                   srcset="../images/gallery/pack-strapping-480.webp 480w, ../images/gallery/pack-strapping-800.webp 800w"
+                   sizes="(max-width: 960px) 100vw, 440px"
+                   alt="两位 Angel Musical 员工为托盘上的钢琴纸箱捆扎打包带" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>捆扎打包带</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/gallery/pack-container-800.webp"
+                   srcset="../images/gallery/pack-container-480.webp 480w, ../images/gallery/pack-container-800.webp 800w"
+                   sizes="(max-width: 960px) 50vw, 220px"
+                   alt="集装箱内码放整齐的已包装钢琴" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>集装箱内部</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/gallery/pack-truck-800.webp"
+                   srcset="../images/gallery/pack-truck-480.webp 480w, ../images/gallery/pack-truck-800.webp 800w"
+                   sizes="(max-width: 960px) 50vw, 220px"
+                   alt="装好货的集装箱货车，柜门敞开" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>装柜完毕，发往港口</figcaption>
+            </figure>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -252,9 +343,9 @@
 
         <div class="craft-text">
           <p class="section-no">走进车间</p>
-          <h2 class="section-title">这一环节，<br>决定演奏表现。</h2>
+          <h2 class="section-title">这道工序，<br>关乎弹奏手感。</h2>
           <p class="section-intro">
-            在专用的室内工作区，技师更换并调整内部机芯部件，每个零件都必须达到0.01&nbsp;mm 的公差要求，带来灵敏而舒适的触键。
+            在专用的室内车间里，技师更换磨损的击弦机零件，并逐台手工调整，使触键均匀、灵敏。
           </p>
         </div>
 
@@ -284,11 +375,101 @@
           </li>
           <li>
             <span class="stat-value">10,000+</span>
-            <span class="stat-label">年出口钢琴（台）</span>
+            <span class="stat-label">年出口量（台）</span>
           </li>
           <li>
             <span class="stat-value">50+</span>
             <span class="stat-label">团队成员</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         6b. 相册 Gallery（2026-10-23 新增：厂区、仓库、车间、装柜的实拍照片）
+         - 每张小图都是一个链接，指向大图（1600 宽）。没有 JavaScript 时点击 = 直接打开大图。
+         - js/gallery.js 会把点击改成"在页面里弹出大图"（灯箱），可以左右切换、按 Esc 关闭。
+         - data-label-* = 灯箱按钮的读屏文字，中日文版会被替换成对应语言
+         =============================================================== -->
+    <section class="section section-light gallery" id="gallery" aria-label="厂区图集"
+             data-label-close="关闭" data-label-prev="上一张" data-label-next="下一张">
+      <div class="container">
+        <div class="section-head section-head-wide">
+          <p class="section-no">厂区实景</p>
+          <h2 class="section-title">仓库、车间<br>与装柜现场</h2>
+        </div>
+        <ul class="gallery-grid">
+          <li>
+            <a class="g-item" href="../images/gallery/g-aerial-lake-1600.webp">
+              <img src="../images/gallery/g-aerial-lake-960.webp"
+                   srcset="../images/gallery/g-aerial-lake-480.webp 480w, ../images/gallery/g-aerial-lake-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="池塘旁的厂房航拍" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">厂区航拍</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-aerial-site-1600.webp">
+              <img src="../images/gallery/g-aerial-site-960.webp"
+                   srcset="../images/gallery/g-aerial-site-480.webp 480w, ../images/gallery/g-aerial-site-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="办公楼与厂区院子航拍" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">办公楼与厂区</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-warehouse-uprights-1600.webp">
+              <img src="../images/gallery/g-warehouse-uprights-960.webp"
+                   srcset="../images/gallery/g-warehouse-uprights-480.webp 480w, ../images/gallery/g-warehouse-uprights-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="仓库里成排的立式钢琴" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">仓库中的立式钢琴</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-warehouse-cartons-1600.webp">
+              <img src="../images/gallery/g-warehouse-cartons-960.webp"
+                   srcset="../images/gallery/g-warehouse-cartons-480.webp 480w, ../images/gallery/g-warehouse-cartons-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="仓库里排列整齐的包装纸箱" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">已包装库存</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-workshop-1600.webp">
+              <img src="../images/gallery/g-workshop-960.webp"
+                   srcset="../images/gallery/g-workshop-480.webp 480w, ../images/gallery/g-workshop-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="车间里正在处理琴壳的技师" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">车间琴壳作业</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-forklift-1600.webp">
+              <img src="../images/gallery/g-forklift-960.webp"
+                   srcset="../images/gallery/g-forklift-480.webp 480w, ../images/gallery/g-forklift-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="叉车向货车上的蓝色集装箱装货" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">叉车装柜</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-container-loaded-1600.webp">
+              <img src="../images/gallery/g-container-loaded-960.webp"
+                   srcset="../images/gallery/g-container-loaded-480.webp 480w, ../images/gallery/g-container-loaded-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="集装箱内已包装的钢琴，旁边站着一位工人" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">装柜中</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-container-truck-1600.webp">
+              <img src="../images/gallery/g-container-truck-960.webp"
+                   srcset="../images/gallery/g-container-truck-480.webp 480w, ../images/gallery/g-container-truck-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="停在厂门口、柜门已关闭的集装箱货车" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">整装待发</p>
           </li>
         </ul>
       </div>
@@ -352,13 +533,13 @@
 
           <div class="prose city-prose">
             <p>
-              安琦乐器位于辽宁营口，地处辽河入辽东湾之处。根据 1858 年《天津条约》，牛庄被辟为对外通商口岸；因牛庄一带河道淤浅，口岸于 1861 年改在下游的营口开埠，成为东北第一个对外通商口岸。西方商人沿用条约中的名称，仍称这里为“牛庄”（Newchwang）。
+              安琦乐器位于辽宁营口，地处辽河注入辽东湾之处。根据 1858 年《天津条约》，牛庄被辟为对外通商口岸；因牛庄一带河道淤浅，口岸于 1861 年改在下游的营口开埠，成为东北第一个对外通商口岸。西方商人则沿用条约中的名称，仍称此地为“牛庄”（Newchwang）。
             </p>
             <p>
-              1864 年，牛庄海关在此设立，是东北地区最早的海关。此后数十年间，营口是东北对外贸易的主要出海口；各国领事馆、洋行、银行和教堂相继出现，那个时代的建筑至今仍伫立在老城的河畔。
+              1864 年，牛庄海关在此设立，是东北地区最早的海关。此后数十年间，营口是东北对外贸易的主要出海口；各国领事馆、洋行、银行和教堂相继建立，当年的建筑至今仍伫立在老城河畔。
             </p>
             <p>
-              如今，营口港及其深水港区鲅鱼圈港区是东北最大的港口之一，向南约 200&nbsp;公里即是大连。我们所在的这座城市，与世界通商已逾 160 年。
+              如今，拥有鲅鱼圈深水港区的营口港是东北最大的港口之一；大连位于其南约 200&nbsp;公里处。我们所在的这座城市，与世界通商已逾 160 年。
             </p>
           </div>
         </div>
@@ -387,7 +568,7 @@
           <p class="section-no">05 — 联系我们</p>
           <h2 class="section-title">与 Angel Musical<br>携手合作</h2>
           <p class="section-intro">
-            想了解库存、集装箱发运或合作事宜？我们的销售团队随时为您服务。
+            如需了解库存、整柜发运或合作事宜，欢迎联系我们的销售团队。
           </p>
           <!-- TODO：邮箱确认后，把 mailto: 后面的地址改成真实邮箱 -->
           <a class="btn btn-gold" href="mailto:angelpiano7788@gmail.com?subject=%E7%B4%A2%E5%8F%96%E5%BA%93%E5%AD%98%E6%B8%85%E5%8D%95">索取库存清单</a>
@@ -420,7 +601,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30" loading="lazy">
+        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="153" height="30" loading="lazy">
         <p class="footer-tagline">匠心修复 · 恒久价值 · 连接世界</p>
       </div>
 
@@ -449,5 +630,8 @@
   <!-- 唯一的一段 JavaScript：只负责"滚动到视频附近时再加载并播放"。
        defer = 等页面内容加载完再运行，不拖慢首屏 -->
   <script src="../js/craft-video.js" defer></script>
+  <script src="../js/header.js" defer></script>  <!-- 首页页头半透明（2026-10-23） -->
+  <script src="../js/gallery.js" defer></script>  <!-- 相册灯箱（2026-10-23） -->
+  <script src="../js/clips.js" defer></script>    <!-- 车间短视频懒加载（2026-10-23） -->
 </body>
 </html>

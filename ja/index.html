@@ -23,7 +23,7 @@
   <!-- 浏览器标签页标题 + 搜索引擎显示的标题 -->
   <title>Angel Musical — 業者様向け 日本製リビルトピアノ</title>
   <!-- 搜索引擎结果里显示的简介（用的是现网站和资料表里的真实文案） -->
-  <meta name="description" content="Angel Musicalは、10か国以上のピアノ販売店・ディーラー・ディストリビューターに日本製リビルトピアノを供給しています。業者様専用です。">
+  <meta name="description" content="Angel Musicalは、10か国以上のピアノ販売店・ディーラー・販売代理店に日本製リビルトピアノを供給しています。業者様向けの卸売専門です。">
 
   <!-- 多语言版本声明（hreflang）：告诉搜索引擎这三个页面是同一内容的不同语言版本。
        x-default = 默认版本（英文）。注意：angelmusical.com 域名还没绑定到新网站，绑定后即生效 -->
@@ -57,9 +57,11 @@
   <header class="site-header">
     <div class="container header-inner">
 
-      <!-- Logo：点击回到首页。页头和页脚用的是同一个文件，保证全站统一 -->
+      <!-- Logo：点击回到首页。页头和页脚用的是同一个文件，保证全站统一
+           （2026-10-23 换成 Option A 几何钛金字标；文字已转成轮廓路径，任何电脑上显示都一样。
+            width/height 按 Option A 的比例 1770:348 写成 153×30，防止加载时页面跳动） -->
       <a class="brand" href="index.html" aria-label="Angel Musical — ホーム">
-        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30">
+        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="153" height="30">
       </a>
 
       <!-- 主导航：# 开头的链接会跳到本页对应的区块 -->
@@ -91,14 +93,14 @@
     <section class="hero">
       <div class="container hero-inner">
         <!-- 小标题（资料表首页文案） -->
-        <p class="eyebrow">安定した品質と、プロフェッショナルなピアノ供給。</p>
+        <p class="eyebrow">安定した品質 · プロのためのピアノ供給</p>
 
         <!-- 主标题：整页唯一的 h1，搜索引擎最看重 -->
         <h1 class="hero-title">日本製<wbr>リビルトピアノ。<br>業者様<wbr>専門。</h1>
 
         <!-- 副标题（现网站 About 页文案） -->
         <p class="hero-lead">
-          Angel Musicalは、10か国以上のピアノ販売店、ディーラー、ディストリビューターに日本製リビルトピアノを供給しています。
+          Angel Musicalは、10か国以上のピアノ販売店、ディーラー、販売代理店に日本製リビルトピアノを供給しています。
         </p>
 
         <!-- 两个按钮：都跳到页面底部的联系区 -->
@@ -132,19 +134,19 @@
 
         <div class="prose">
           <p>
-            Angel Musical Instrument (Liaoning) Co., Ltd.は、2020年に営口総合保税区で事業を開始し、輸入中古ピアノの保税物流を専門としております。
+            Angel Musical Instrument (Liaoning) Co., Ltd.は、2020年に営口総合保税区で事業を開始しました。輸入中古ピアノの保税物流を専門としています。
           </p>
           <p>
-            仕入れから整備、輸出物流までを当社が担いますので、お客様は販売に専念していただけます。一つひとつのお取引を、長くお付き合いいただくための関係と考えております。
+            仕入れから整備、輸出物流までを当社が担いますので、お客様は販売に専念していただけます。一つひとつのお取引を、長いお付き合いの始まりと考えています。
           </p>
 
           <!-- 引言：用细金线和衬线字体突出公司理念 -->
           <blockquote class="quote">
-            <p>この業界では、信用は貨物よりもゆっくりと届き、そして長く残ります。</p>
+            <p>この業界では、信用は貨物よりも届くのに時間がかかり、その分長く残ります。</p>
           </blockquote>
 
           <p>
-            目先の取引を追うよりも、一便ごとに信頼を積み重ねることを大切にしています。取扱量は変わっても、パートナーシップは変わるべきではありません。
+            目先の取引を追うよりも、一便ごとに信頼を積み重ねることを大切にしています。取扱量には波があっても、パートナーシップは揺らぐべきではないと考えています。
           </p>
         </div>
 
@@ -156,21 +158,41 @@
           <img src="../images/about-facility.webp" alt="営口にあるAngel Musicalの施設の空撮" width="1600" height="686" loading="lazy">
           <figcaption>当社施設 · 営口</figcaption>
         </figure>
+
+        <!-- 2026-10-23 新增：两张并排小图（办公楼正面 + 仓库）。
+             srcset = 同一张图的两个尺寸，sizes = 告诉浏览器图片大约显示多宽，浏览器自己挑最合适的那张 -->
+        <div class="photo-pair">
+          <figure>
+            <img src="../images/gallery/about-front-960.webp"
+                 srcset="../images/gallery/about-front-480.webp 480w, ../images/gallery/about-front-960.webp 960w"
+                 sizes="(max-width: 960px) 100vw, 580px"
+                 alt="Angel Musical 事務所棟の正面" width="960" height="640" loading="lazy" decoding="async">
+            <figcaption>事務所棟</figcaption>
+          </figure>
+          <figure>
+            <img src="../images/gallery/about-warehouse-960.webp"
+                 srcset="../images/gallery/about-warehouse-480.webp 480w, ../images/gallery/about-warehouse-960.webp 960w"
+                 sizes="(max-width: 960px) 100vw, 580px"
+                 alt="梱包済みの段ボールが並ぶ倉庫の通路" width="960" height="640" loading="lazy" decoding="async">
+            <figcaption>倉庫</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <!-- ===============================================================
          5. 十道工序 The 10-step process（文案来自现网站 Services 页）
          上面 3 张工艺照片，下面是编号列表 <ol>
+         2026-10-23：文案改为克制、真实的说法（不写无法保证的精度数字，如“0.01 mm 公差”，也不用“每一台/完美/镜面”等绝对化用语）
          =============================================================== -->
     <section class="section section-light section-border" id="process">
       <div class="container">
 
         <div class="section-head section-head-wide">
           <p class="section-no">02 — 工程</p>
-          <h2 class="section-title">10の工程を、<wbr>すべてのピアノに。</h2>
+          <h2 class="section-title">入荷から輸出まで、<wbr>10の工程。</h2>
           <p class="section-intro">
-            入荷検品からコンテナ積み込みまで、各工程で品質検査を行い、合格したピアノのみを出荷いたします。
+            入荷検品からコンテナ積み込みまで、工程ごとに品質を確認し、最終検査に合格したピアノのみを出荷します。
           </p>
         </div>
 
@@ -194,45 +216,114 @@
         <ol class="steps">
           <li>
             <h3>入荷検品</h3>
-            <p>ピアノは中央倉庫に入荷後、一台ずつ専門的な評価を受けます。新品に近い状態まで整備できるピアノのみが工房に入ります。</p>
+            <p>ピアノは中央倉庫に入荷後、一台ずつ評価し、整備に適していると判断したものだけを工房へ回します。</p>
           </li>
           <li>
             <h3>徹底クリーニング</h3>
             <p>内部と外装を徹底的に清掃し、長年たまったほこりや汚れ、残留物を取り除きます。</p>
           </li>
           <li>
-            <h3>外装の再仕上げ・鏡面研磨</h3>
-            <p>細やかな研磨とポリッシュで傷やくすみを取り除き、鏡面に仕上げます。</p>
+            <h3>外装の再仕上げ・研磨</h3>
+            <p>外装を丁寧に研磨して傷やくすみを目立たなくし、光沢のある仕上がりに戻します。</p>
           </li>
           <li>
-            <h3>鍵盤表面の研磨・交換</h3>
-            <p>鍵盤表面を象牙のような滑らかな手触りに磨き上げ、ひび割れや損傷のあるものは適合する素材で交換します。</p>
+            <h3>キートップの研磨・交換</h3>
+            <p>キートップを磨いて滑らかな手触りに整え、割れや欠けのあるものは近い素材のものに交換します。</p>
           </li>
           <li>
             <h3>アクション部品の交換</h3>
-            <p>技術者が内部のアクション部品を交換・調整します。すべての部品が0.01&nbsp;mmの公差を満たす必要があります。</p>
+            <p>技術者が必要に応じて摩耗したアクション部品を交換し、一台ずつ手作業で調整します。</p>
           </li>
           <li>
             <h3>フルリビルド</h3>
-            <p>全面的なアップグレードをご希望のお客様には、弦やハンマーなどの主要部品を再生し、精密に調整いたします。</p>
+            <p>全面的な改修をご希望の場合は、弦やハンマーなどの主要部品をリビルドし、丁寧に調整します。</p>
           </li>
           <li>
-            <h3>アクション調整・鍵盤調整</h3>
-            <p>鍵盤の重さ・高さ・深さを測定し、メーカー出荷時の仕様に合わせて調整します。</p>
+            <h3>アクション・鍵盤の調整</h3>
+            <p>鍵盤の重さ・高さ・深さを測定し、メーカーの仕様を参考に調整します。</p>
           </li>
           <li>
             <h3>整調・整音・調律</h3>
-            <p>一音ずつ調整して全音域で均一な音色とバランスを整え、最後に精密な調律を行います。</p>
-          </li>
-          <li>
-            <h3>出荷前最終検査</h3>
-            <p>すべての部品を確認します。不具合があれば再作業を行い、合格したピアノのみを出荷いたします。</p>
-          </li>
-          <li>
-            <h3>コンテナ積み込み・輸出</h3>
-            <p>整備済みのピアノは専門的に梱包して海上コンテナに積み込み、大連港から世界各地のパートナーへ出荷いたします。</p>
+            <p>一音ずつ調整し、全音域で音色とバランスがそろうよう整えたうえで、丁寧に調律します。</p>
           </li>
         </ol>
+
+        <!-- 2026-10-23 新增：车间短视频 / 截图，对应上面的第 III、IV、V、VII 步。
+             视频都是静音循环的小文件（每段 1 MB 以内），先只显示封面图，
+             滚动到附近才由 js/clips.js 加载；手机上自动换成更小的版本；
+             访客开启"减少动态效果"时只显示封面图，不播放。 -->
+        <div class="clip-row">
+          <figure>
+            <img src="../images/clips/still-polishing.webp" alt="オービタルポリッシャーで黒いアップライトピアノの外装を磨く技術者" width="480" height="600" loading="lazy" decoding="async">
+            <figcaption><span class="clip-no">III</span>外装の研磨</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-keys-poster.webp" width="480" height="600"
+                   aria-label="工房の映像：バフ機で鍵盤を磨く技術者">
+              <source data-src="../video/clip-keys.webm" data-src-mobile="../video/clip-keys-m.webm" type="video/webm">
+              <source data-src="../video/clip-keys.mp4" data-src-mobile="../video/clip-keys-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">IV</span>バフ機での鍵盤研磨</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-action-poster.webp" width="480" height="600"
+                   aria-label="工房の映像：アクションの小部品を手作業で取り付ける技術者">
+              <source data-src="../video/clip-action.webm" data-src-mobile="../video/clip-action-m.webm" type="video/webm">
+              <source data-src="../video/clip-action.mp4" data-src-mobile="../video/clip-action-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">V</span>アクション部品を手作業で取り付け</figcaption>
+          </figure>
+          <figure>
+            <video class="clip-video" muted loop playsinline preload="none"
+                   poster="../images/clips/clip-regulation-poster.webp" width="480" height="600"
+                   aria-label="工房の映像：アップライトピアノのアクションを調整する技術者">
+              <source data-src="../video/clip-regulation.webm" data-src-mobile="../video/clip-regulation-m.webm" type="video/webm">
+              <source data-src="../video/clip-regulation.mp4" data-src-mobile="../video/clip-regulation-m.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="clip-no">VII</span>アクションの調整</figcaption>
+          </figure>
+        </div>
+
+        <!-- 2026-10-23 新增：第 IX–X 步（终检、包装、装柜）单独一块：左边文字，右边 3 张包装/装柜照片。
+             第二个 <ol> 加了 class="steps-tail"，CSS 里让它的编号从 IX 接着往下数 -->
+        <div class="pack-block">
+          <ol class="steps steps-tail">
+            <li>
+              <h3>出荷前最終検査</h3>
+              <p>出荷前に一台ずつ点検し、不具合があれば手直しを行ったうえで、合格したピアノのみを出荷します。</p>
+            </li>
+            <li>
+              <h3>コンテナ積み込み・輸出</h3>
+              <p>整備を終えたピアノはしっかりと梱包して海上コンテナに積み込み、大連港から世界各地のお取引先へ出荷します。</p>
+            </li>
+          </ol>
+
+          <div class="pack-photos">
+            <figure class="pack-main">
+              <img src="../images/gallery/pack-strapping-800.webp"
+                   srcset="../images/gallery/pack-strapping-480.webp 480w, ../images/gallery/pack-strapping-800.webp 800w"
+                   sizes="(max-width: 960px) 100vw, 440px"
+                   alt="パレット上のピアノ用段ボール梱包にバンドを掛ける Angel Musical のスタッフ2名" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>梱包のバンド掛け</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/gallery/pack-container-800.webp"
+                   srcset="../images/gallery/pack-container-480.webp 480w, ../images/gallery/pack-container-800.webp 800w"
+                   sizes="(max-width: 960px) 50vw, 220px"
+                   alt="コンテナ内に積まれた梱包済みのピアノ" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>コンテナ内部</figcaption>
+            </figure>
+            <figure>
+              <img src="../images/gallery/pack-truck-800.webp"
+                   srcset="../images/gallery/pack-truck-480.webp 480w, ../images/gallery/pack-truck-800.webp 800w"
+                   sizes="(max-width: 960px) 50vw, 220px"
+                   alt="積み込みを終え、扉が開いたトラックのコンテナ" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>積み込みを終えて港へ</figcaption>
+            </figure>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -252,9 +343,9 @@
 
         <div class="craft-text">
           <p class="section-no">工房の様子</p>
-          <h2 class="section-title">この工程が、<br>演奏性を<wbr>決めます。</h2>
+          <h2 class="section-title">この工程が、<br>弾き心地を<wbr>左右します。</h2>
           <p class="section-intro">
-            専用の屋内作業場で、技術者が内部のアクション部品を交換・調整します。すべての部品を0.01&nbsp;mmの公差に収め、反応が良く弾きやすいタッチに仕上げます。
+            専用の屋内工房で、技術者が摩耗したアクション部品を交換し、一台ずつ手作業で調整して、むらのない反応の良いタッチに整えます。
           </p>
         </div>
 
@@ -289,6 +380,96 @@
           <li>
             <span class="stat-value">50+</span>
             <span class="stat-label">従業員数</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===============================================================
+         6b. 相册 Gallery（2026-10-23 新增：厂区、仓库、车间、装柜的实拍照片）
+         - 每张小图都是一个链接，指向大图（1600 宽）。没有 JavaScript 时点击 = 直接打开大图。
+         - js/gallery.js 会把点击改成"在页面里弹出大图"（灯箱），可以左右切换、按 Esc 关闭。
+         - data-label-* = 灯箱按钮的读屏文字，中日文版会被替换成对应语言
+         =============================================================== -->
+    <section class="section section-light gallery" id="gallery" aria-label="写真ギャラリー"
+             data-label-close="閉じる" data-label-prev="前の写真" data-label-next="次の写真">
+      <div class="container">
+        <div class="section-head section-head-wide">
+          <p class="section-no">施設の様子</p>
+          <h2 class="section-title">倉庫、工房、<br>そして積み込みの現場。</h2>
+        </div>
+        <ul class="gallery-grid">
+          <li>
+            <a class="g-item" href="../images/gallery/g-aerial-lake-1600.webp">
+              <img src="../images/gallery/g-aerial-lake-960.webp"
+                   srcset="../images/gallery/g-aerial-lake-480.webp 480w, ../images/gallery/g-aerial-lake-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="池のそばに建つ工場棟の空撮" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">施設の空撮</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-aerial-site-1600.webp">
+              <img src="../images/gallery/g-aerial-site-960.webp"
+                   srcset="../images/gallery/g-aerial-site-480.webp 480w, ../images/gallery/g-aerial-site-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="事務所棟と敷地の空撮" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">事務所棟と敷地</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-warehouse-uprights-1600.webp">
+              <img src="../images/gallery/g-warehouse-uprights-960.webp"
+                   srcset="../images/gallery/g-warehouse-uprights-480.webp 480w, ../images/gallery/g-warehouse-uprights-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="倉庫に並ぶアップライトピアノ" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">倉庫のアップライトピアノ</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-warehouse-cartons-1600.webp">
+              <img src="../images/gallery/g-warehouse-cartons-960.webp"
+                   srcset="../images/gallery/g-warehouse-cartons-480.webp 480w, ../images/gallery/g-warehouse-cartons-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="倉庫に並ぶ梱包済みの段ボール" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">梱包済みの在庫</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-workshop-1600.webp">
+              <img src="../images/gallery/g-workshop-960.webp"
+                   srcset="../images/gallery/g-workshop-480.webp 480w, ../images/gallery/g-workshop-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="工房でピアノの外装を手入れする技術者" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">工房での外装作業</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-forklift-1600.webp">
+              <img src="../images/gallery/g-forklift-960.webp"
+                   srcset="../images/gallery/g-forklift-480.webp 480w, ../images/gallery/g-forklift-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="トラックの青いコンテナにフォークリフトで積み込む様子" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">コンテナへの積み込み</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-container-loaded-1600.webp">
+              <img src="../images/gallery/g-container-loaded-960.webp"
+                   srcset="../images/gallery/g-container-loaded-480.webp 480w, ../images/gallery/g-container-loaded-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="コンテナ内の梱包済みピアノと、そばに立つ作業員" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">積み込み作業中</p>
+          </li>
+          <li>
+            <a class="g-item" href="../images/gallery/g-container-truck-1600.webp">
+              <img src="../images/gallery/g-container-truck-960.webp"
+                   srcset="../images/gallery/g-container-truck-480.webp 480w, ../images/gallery/g-container-truck-960.webp 960w"
+                   sizes="(max-width: 960px) 50vw, 300px"
+                   alt="門の前に停まる、扉を閉めたコンテナトラック" width="960" height="640" loading="lazy" decoding="async">
+            </a>
+            <p class="g-cap">出発準備完了</p>
           </li>
         </ul>
       </div>
@@ -330,7 +511,7 @@
             <p class="brands-note">その他の日本ブランドのアップライト・グランドピアノも取り扱っております。</p>
 
             <!-- TODO：产品页还没做，做好后链接到 products.html -->
-            <a class="text-link" href="../products.html">全モデルを見る <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="../products.html">全モデル一覧 <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -352,13 +533,13 @@
 
           <div class="prose city-prose">
             <p>
-              Angel Musicalは、遼河が遼東湾に注ぐ遼寧省営口に拠点を置いています。天津条約（1858年）により河港の牛荘が対外貿易港に指定されましたが、川の土砂堆積のため、1861年に下流の営口で開港しました。中国東北地方で最初の条約港です。西洋の商人は、条約上の名称である「牛荘（ニューチャン）」をそのまま使い続けました。
+              Angel Musicalは、遼河が遼東湾に注ぐ遼寧省営口に拠点を置いています。天津条約（1858年）により河港の牛荘が対外貿易港に指定されましたが、川の土砂堆積のため、1861年に下流の営口で開港しました。これが中国東北地方で最初の条約港です。西洋の商人は、条約上の名称である「牛荘（ニューチャン）」をそのまま使い続けました。
             </p>
             <p>
               1864年にはこの地に牛荘海関（税関）が開設され、地域で最初の税関となりました。その後数十年にわたり、営口は満洲の交易の主要な窓口となり、各国の領事館、商館、銀行、教会が建てられました。当時の建物は、今も旧市街の川沿いに残っています。
             </p>
             <p>
-              現在、深水港である鮁魚圏港区を擁する営口港は中国東北地方有数の港で、南へ約200&nbsp;kmの距離に大連があります。160年以上にわたり世界と交易を続けてきたこの街で、私たちは仕事をしています。
+              現在、深水港である鮁魚圏港区を擁する営口港は中国東北地方有数の港で、南へ約200&nbsp;kmの距離に大連があります。私たちは、160年以上にわたり世界と交易を続けてきたこの街を拠点にしています。
             </p>
           </div>
         </div>
@@ -420,7 +601,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="161" height="30" loading="lazy">
+        <img src="../images/logo-angel-gold.svg" alt="ANGEL" width="153" height="30" loading="lazy">
         <p class="footer-tagline">匠の修復 · 長く続く価値 · 世界をつなぐ</p>
       </div>
 
@@ -449,5 +630,8 @@
   <!-- 唯一的一段 JavaScript：只负责"滚动到视频附近时再加载并播放"。
        defer = 等页面内容加载完再运行，不拖慢首屏 -->
   <script src="../js/craft-video.js" defer></script>
+  <script src="../js/header.js" defer></script>  <!-- 首页页头半透明（2026-10-23） -->
+  <script src="../js/gallery.js" defer></script>  <!-- 相册灯箱（2026-10-23） -->
+  <script src="../js/clips.js" defer></script>    <!-- 车间短视频懒加载（2026-10-23） -->
 </body>
 </html>
